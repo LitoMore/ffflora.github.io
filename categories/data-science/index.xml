@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Data Science on Flora&#39;s</title>
-    <link>https://ffflora.github.io/categories/data-science/</link>
+    <link>https://ffflora.github.io/categories/data-science.html</link>
     <description>Recent content in Data Science on Flora&#39;s</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
@@ -13,20 +13,20 @@
     
     <item>
       <title>How to be a Kaggle Master?</title>
-      <link>https://ffflora.github.io/posts/how-to-be-a-kaggle-master/</link>
+      <link>https://ffflora.github.io/posts/how-to-be-a-kaggle-master.html</link>
       <pubDate>Thu, 05 Sep 2019 13:27:11 -0700</pubDate>
       
-      <guid>https://ffflora.github.io/posts/how-to-be-a-kaggle-master/</guid>
+      <guid>https://ffflora.github.io/posts/how-to-be-a-kaggle-master.html</guid>
       <description>How to be a Kaggle Master Kaggle Combo x3:
 Feature Engineering, Hyperparameter Tuning, Model Ensemble Data Preprocessing: Missing values imputation:  Numeric Features  Impute with mean for normal distributed feature Impute with median for skewed distribution (reduce the impacts of outliers)  Categorical Features  Majority Imputation  Supervised Learning Imputation  Regression/Classification  XGBoost/LightGBM:  Missing values are gracefully treated by considering missing values as candidate for tree splitting point.</description>
     </item>
     
     <item>
       <title>Use Auto-completion in gcloud</title>
-      <link>https://ffflora.github.io/posts/gcloud-and-cloud-shell/</link>
+      <link>https://ffflora.github.io/posts/gcloud-and-cloud-shell.html</link>
       <pubDate>Wed, 28 Aug 2019 00:02:53 -0700</pubDate>
       
-      <guid>https://ffflora.github.io/posts/gcloud-and-cloud-shell/</guid>
+      <guid>https://ffflora.github.io/posts/gcloud-and-cloud-shell.html</guid>
       <description>This notes is from Qwiklabs GCP Essentials.
 Auto-completion gcloud interactive has auto prompting for commands and flags, and displays inline help snippets in the lower section as the command is typed.
 Static information, like command and sub-command names, and flag names and enumerated flag values, are auto-completed using dropdown menus.
@@ -37,10 +37,10 @@ gcloud beta interactive When using the interactive mode, click on the Tab key to
     
     <item>
       <title>How to read csv files under .gz in Kaggle kernel?</title>
-      <link>https://ffflora.github.io/posts/read-gz-in-kaggle/</link>
+      <link>https://ffflora.github.io/posts/read-gz-in-kaggle.html</link>
       <pubDate>Tue, 27 Aug 2019 00:23:55 -0700</pubDate>
       
-      <guid>https://ffflora.github.io/posts/read-gz-in-kaggle/</guid>
+      <guid>https://ffflora.github.io/posts/read-gz-in-kaggle.html</guid>
       <description>It took me long time to figure it out.
 Say if the files&amp;rsquo; directory in the Kaggle kernel looks like this:
 competitive-data-science-predict-future-sales sales_train.csv.gz sales_train.csv When I try to list all the files in the directory, I realize that there&amp;rsquo;s no need to unzip the .gz file in order to get the .csv files, since

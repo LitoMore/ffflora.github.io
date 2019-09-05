@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Qwiklabs on Flora&#39;s</title>
-    <link>https://ffflora.github.io/tags/qwiklabs/</link>
+    <link>https://ffflora.github.io/tags/qwiklabs.html</link>
     <description>Recent content in Qwiklabs on Flora&#39;s</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
@@ -13,10 +13,10 @@
     
     <item>
       <title>Use Auto-completion in gcloud</title>
-      <link>https://ffflora.github.io/posts/gcloud-and-cloud-shell/</link>
+      <link>https://ffflora.github.io/posts/gcloud-and-cloud-shell.html</link>
       <pubDate>Wed, 28 Aug 2019 00:02:53 -0700</pubDate>
       
-      <guid>https://ffflora.github.io/posts/gcloud-and-cloud-shell/</guid>
+      <guid>https://ffflora.github.io/posts/gcloud-and-cloud-shell.html</guid>
       <description>This notes is from Qwiklabs GCP Essentials.
 Auto-completion gcloud interactive has auto prompting for commands and flags, and displays inline help snippets in the lower section as the command is typed.
 Static information, like command and sub-command names, and flag names and enumerated flag values, are auto-completed using dropdown menus.
