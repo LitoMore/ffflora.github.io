@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Flora Jiang">
+    <meta name="description" content="Flora&#39;s personal website">
+    <meta name="keywords" content="blog,data,personal">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="How to read csv files under .gz in Kaggle kernel?"/>
+<meta name="twitter:description" content="It took me long time to figure it out.
+Say if the files&rsquo; directory in the Kaggle kernel looks like this:
+competitive-data-science-predict-future-sales sales_train.csv.gz sales_train.csv When I try to list all the files in the directory, I realize that there&rsquo;s no need to unzip the .gz file in order to get the .csv files, since
+import os data_dir = &#39;/kaggle/input/competitive-data-science-predict-future-sales&#39; os.listdir(data_dir) the output is:
+[&#39;test.csv&#39;, &#39;item_categories.csv&#39;, &#39;sales_train.csv&#39;, &#39;sample_submission.csv&#39;, &#39;items.csv&#39;, &#39;shops.csv&#39;] Thus in order to use the ."/>
+
+    <meta property="og:title" content="How to read csv files under .gz in Kaggle kernel?" />
+<meta property="og:description" content="It took me long time to figure it out.
+Say if the files&rsquo; directory in the Kaggle kernel looks like this:
+competitive-data-science-predict-future-sales sales_train.csv.gz sales_train.csv When I try to list all the files in the directory, I realize that there&rsquo;s no need to unzip the .gz file in order to get the .csv files, since
+import os data_dir = &#39;/kaggle/input/competitive-data-science-predict-future-sales&#39; os.listdir(data_dir) the output is:
+[&#39;test.csv&#39;, &#39;item_categories.csv&#39;, &#39;sales_train.csv&#39;, &#39;sample_submission.csv&#39;, &#39;items.csv&#39;, &#39;shops.csv&#39;] Thus in order to use the ." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ffflora.github.io/posts/read-gz-in-kaggle.html" />
+<meta property="article:published_time" content="2019-08-27T00:23:55-07:00" />
+<meta property="article:modified_time" content="2019-08-27T00:23:55-07:00" />
+
+
+    
+      <base href="https://ffflora.github.io/posts/read-gz-in-kaggle.html">
+    
+    <title>
+  How to read csv files under .gz in Kaggle kernel? · Flora&#39;s
+</title>
+
+    
+      <link rel="canonical" href="https://ffflora.github.io/posts/read-gz-in-kaggle.html">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://ffflora.github.io/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+      <link rel="stylesheet" href="https://ffflora.github.io/css/custom.css" />
+    
+
+    
+    
+    <link rel="icon" type="image/png" href="https://ffflora.github.io/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://ffflora.github.io/img/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.57.2" />
+  </head>
+
+  <body class=" ">
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="https://ffflora.github.io/">
+      Flora&#39;s
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://ffflora.github.io/posts/">Blog</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://ffflora.github.io/resume.pdf/">About</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://ffflora.github.io/render.html/"></a>
+          </li>
+        
+      
+      
+    </ul>
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">How to read csv files under .gz in Kaggle kernel?</h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fas fa-calendar"></i>
+              <time datetime='2019-08-27T00:23:55-07:00'>
+                August 27, 2019
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fas fa-clock"></i>
+              One minute read
+            </span>
+          </div>
+          <div class="categories">
+  <i class="fas fa-folder"></i>
+    <a href="https://ffflora.github.io/categories/data-science/">Data Science</a></div>
+
+          <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="https://ffflora.github.io/tags/kaggle/">Kaggle</a>
+      <span class="separator">•</span>
+    <a href="https://ffflora.github.io/tags/kernel/">kernel</a></div>
+
+        </div>
+      </header>
+
+      <div>
+        <p>It took me long time to figure it out.</p>
+
+<p>Say if the files&rsquo; directory in the Kaggle kernel looks like this:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">competitive-data-science-predict-future-sales
+	sales_train.csv.gz
+		sales_train.csv</pre></div>
+<p>When I try to list all the files in the directory, I realize that there&rsquo;s no need to unzip the <code>.gz</code> file in order to get the <code>.csv</code> files, since</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="font-weight:bold">import</span> <span style="font-weight:bold">os</span>
+data_dir = <span style="font-style:italic">&#39;/kaggle/input/competitive-data-science-predict-future-sales&#39;</span>
+os.listdir(data_dir)</code></pre></div>
+<p>the output is:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">[&#39;test.csv&#39;,
+ &#39;item_categories.csv&#39;,
+ &#39;sales_train.csv&#39;,
+ &#39;sample_submission.csv&#39;,
+ &#39;items.csv&#39;,
+ &#39;shops.csv&#39;]</pre></div>
+<p>Thus in order to use the <code>.csv</code> files just do as follows:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">train = pd.read_csv(<span style="font-style:italic">&#39;../input/competitive-data-science-predict-future-sales/sales_train.csv&#39;</span>)</code></pre></div>
+      </div>
+
+      <footer>
+        
+
+
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "ffflora-github-io" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+      <p>Happy Analyzing!</p>
+    
+     © 2019
+    
+       · 
+      Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+
+  </body>
+
+</html>

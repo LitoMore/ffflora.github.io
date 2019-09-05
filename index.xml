@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Flora&#39;s</title>
+    <link>https://ffflora.github.io/</link>
+    <description>Recent content on Flora&#39;s</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 05 Sep 2019 14:39:18 -0700</lastBuildDate>
+    
+	<atom:link href="https://ffflora.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>testtest</title>
+      <link>https://ffflora.github.io/posts/test.html</link>
+      <pubDate>Thu, 05 Sep 2019 14:39:18 -0700</pubDate>
+      
+      <guid>https://ffflora.github.io/posts/test.html</guid>
+      <description>123123jhjhj</description>
+    </item>
+    
+    <item>
+      <title>How to be a Kaggle Master?</title>
+      <link>https://ffflora.github.io/posts/how-to-be-a-kaggle-master.html</link>
+      <pubDate>Thu, 05 Sep 2019 13:27:11 -0700</pubDate>
+      
+      <guid>https://ffflora.github.io/posts/how-to-be-a-kaggle-master.html</guid>
+      <description>How to be a Kaggle Master Kaggle Combo x3:
+Feature Engineering, Hyperparameter Tuning, Model Ensemble Data Preprocessing: Missing values imputation:  Numeric Features  Impute with mean for normal distributed feature Impute with median for skewed distribution (reduce the impacts of outliers)  Categorical Features  Majority Imputation  Supervised Learning Imputation  Regression/Classification  XGBoost/LightGBM:  Missing values are gracefully treated by considering missing values as candidate for tree splitting point.</description>
+    </item>
+    
+    <item>
+      <title>Use Auto-completion in gcloud</title>
+      <link>https://ffflora.github.io/posts/gcloud-and-cloud-shell.html</link>
+      <pubDate>Wed, 28 Aug 2019 00:02:53 -0700</pubDate>
+      
+      <guid>https://ffflora.github.io/posts/gcloud-and-cloud-shell.html</guid>
+      <description>This notes is from Qwiklabs GCP Essentials.
+Auto-completion gcloud interactive has auto prompting for commands and flags, and displays inline help snippets in the lower section as the command is typed.
+Static information, like command and sub-command names, and flag names and enumerated flag values, are auto-completed using dropdown menus.
+Install the beta components:
+gcloud components install beta Enter the gcloud interactive mode:
+gcloud beta interactive When using the interactive mode, click on the Tab key to complete file path and resource arguments.</description>
+    </item>
+    
+    <item>
+      <title>How to read csv files under .gz in Kaggle kernel?</title>
+      <link>https://ffflora.github.io/posts/read-gz-in-kaggle.html</link>
+      <pubDate>Tue, 27 Aug 2019 00:23:55 -0700</pubDate>
+      
+      <guid>https://ffflora.github.io/posts/read-gz-in-kaggle.html</guid>
+      <description>It took me long time to figure it out.
+Say if the files&amp;rsquo; directory in the Kaggle kernel looks like this:
+competitive-data-science-predict-future-sales sales_train.csv.gz sales_train.csv When I try to list all the files in the directory, I realize that there&amp;rsquo;s no need to unzip the .gz file in order to get the .csv files, since
+import os data_dir = &amp;#39;/kaggle/input/competitive-data-science-predict-future-sales&amp;#39; os.listdir(data_dir) the output is:
+[&amp;#39;test.csv&amp;#39;, &amp;#39;item_categories.csv&amp;#39;, &amp;#39;sales_train.csv&amp;#39;, &amp;#39;sample_submission.csv&amp;#39;, &amp;#39;items.csv&amp;#39;, &amp;#39;shops.csv&amp;#39;] Thus in order to use the .</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ffflora.github.io/render.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ffflora.github.io/render.html</guid>
+      <description>Awesome-pyechartsvar chart_f004fbb53bef41948d6148e8f915d66b = echarts.init(document.getElementById(&#39;f004fbb53bef41948d6148e8f915d66b&#39;), &#39;white&#39;, {renderer: &#39;canvas&#39;});var option_f004fbb53bef41948d6148e8f915d66b = {&#34;animation&#34;: true,&#34;animationThreshold&#34;: 2000,&#34;animationDuration&#34;: 1000,&#34;animationEasing&#34;: &#34;cubicOut&#34;,&#34;animationDelay&#34;: 0,&#34;animationDurationUpdate&#34;: 300,&#34;animationEasingUpdate&#34;: &#34;cubicOut&#34;,&#34;animationDelayUpdate&#34;: 0,&#34;color&#34;: [&#34;white&#34;,&#34;#c23531&#34;,&#34;#2f4554&#34;,&#34;#61a0a8&#34;,&#34;#d48265&#34;,&#34;#749f83&#34;,&#34;#ca8622&#34;,&#34;#bda29a&#34;,&#34;#6e7074&#34;,&#34;#546570&#34;,&#34;#c4ccd3&#34;,&#34;#f05b72&#34;,&#34;#ef5b9c&#34;,&#34;#f47920&#34;,&#34;#905a3d&#34;,&#34;#fab27b&#34;,&#34;#2a5caa&#34;,&#34;#444693&#34;,&#34;#726930&#34;,&#34;#b2d235&#34;,&#34;#6d8346&#34;,&#34;#ac6767&#34;,&#34;#1d953f&#34;,&#34;#6950a1&#34;,&#34;#918597&#34;],&#34;series&#34;: [{&#34;type&#34;: &#34;effectScatter&#34;,&#34;</description>
+    </item>
+    
+  </channel>
+</rss>
