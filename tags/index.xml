@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Flora&#39;s</title>
-    <link>https://ffflora.github.io/tags.html</link>
+    <link>https://ffflora.github.io/tags/</link>
     <description>Recent content in Tags on Flora&#39;s</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
@@ -13,55 +13,55 @@
     
     <item>
       <title>Kaggle</title>
-      <link>https://ffflora.github.io/tags/kaggle.html</link>
+      <link>https://ffflora.github.io/tags/kaggle/</link>
       <pubDate>Thu, 05 Sep 2019 13:27:11 -0700</pubDate>
       
-      <guid>https://ffflora.github.io/tags/kaggle.html</guid>
+      <guid>https://ffflora.github.io/tags/kaggle/</guid>
       <description></description>
     </item>
     
     <item>
       <title>notes</title>
-      <link>https://ffflora.github.io/tags/notes.html</link>
+      <link>https://ffflora.github.io/tags/notes/</link>
       <pubDate>Thu, 05 Sep 2019 13:27:11 -0700</pubDate>
       
-      <guid>https://ffflora.github.io/tags/notes.html</guid>
+      <guid>https://ffflora.github.io/tags/notes/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Data Engineer</title>
-      <link>https://ffflora.github.io/tags/data-engineer.html</link>
+      <link>https://ffflora.github.io/tags/data-engineer/</link>
       <pubDate>Wed, 28 Aug 2019 00:02:53 -0700</pubDate>
       
-      <guid>https://ffflora.github.io/tags/data-engineer.html</guid>
+      <guid>https://ffflora.github.io/tags/data-engineer/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Google Cloud</title>
-      <link>https://ffflora.github.io/tags/google-cloud.html</link>
+      <link>https://ffflora.github.io/tags/google-cloud/</link>
       <pubDate>Wed, 28 Aug 2019 00:02:53 -0700</pubDate>
       
-      <guid>https://ffflora.github.io/tags/google-cloud.html</guid>
+      <guid>https://ffflora.github.io/tags/google-cloud/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Qwiklabs</title>
-      <link>https://ffflora.github.io/tags/qwiklabs.html</link>
+      <link>https://ffflora.github.io/tags/qwiklabs/</link>
       <pubDate>Wed, 28 Aug 2019 00:02:53 -0700</pubDate>
       
-      <guid>https://ffflora.github.io/tags/qwiklabs.html</guid>
+      <guid>https://ffflora.github.io/tags/qwiklabs/</guid>
       <description></description>
     </item>
     
     <item>
       <title>kernel</title>
-      <link>https://ffflora.github.io/tags/kernel.html</link>
+      <link>https://ffflora.github.io/tags/kernel/</link>
       <pubDate>Tue, 27 Aug 2019 00:23:55 -0700</pubDate>
       
-      <guid>https://ffflora.github.io/tags/kernel.html</guid>
+      <guid>https://ffflora.github.io/tags/kernel/</guid>
       <description></description>
     </item>
     
