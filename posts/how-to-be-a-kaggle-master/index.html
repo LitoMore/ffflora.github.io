@@ -12,11 +12,11 @@
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="How to be a Kaggle Master?"/>
 <meta name="twitter:description" content="How to be a Kaggle Master Kaggle Combo x3:
-Feature Engineering, Hyperparameter Tuning, Model Ensemble Data Preprocessing: Missing values imputation:  Numeric Features  Impute with mean for normal distributed feature Impute with median for skewed distribution (reduce the impacts of outliers)  Categorical Features  Majority Imputation  Supervised Learning Imputation  Regression/Classification  XGBoost/LightGBM:  Missing values are gracefully treated by considering missing values as candidate for tree splitting point."/>
+Feature Engineering, Model Tuning, Model Ensemble Data Preprocessing: Missing values imputation:  Numeric Features  Impute with mean for normal distributed feature Impute with median for skewed distribution (reduce the impacts of outliers)  Categorical Features  Majority Imputation  Supervised Learning Imputation  Regression/Classification  XGBoost/LightGBM:  Missing values are gracefully treated by considering missing values as candidate for tree splitting point."/>
 
     <meta property="og:title" content="How to be a Kaggle Master?" />
 <meta property="og:description" content="How to be a Kaggle Master Kaggle Combo x3:
-Feature Engineering, Hyperparameter Tuning, Model Ensemble Data Preprocessing: Missing values imputation:  Numeric Features  Impute with mean for normal distributed feature Impute with median for skewed distribution (reduce the impacts of outliers)  Categorical Features  Majority Imputation  Supervised Learning Imputation  Regression/Classification  XGBoost/LightGBM:  Missing values are gracefully treated by considering missing values as candidate for tree splitting point." />
+Feature Engineering, Model Tuning, Model Ensemble Data Preprocessing: Missing values imputation:  Numeric Features  Impute with mean for normal distributed feature Impute with median for skewed distribution (reduce the impacts of outliers)  Categorical Features  Majority Imputation  Supervised Learning Imputation  Regression/Classification  XGBoost/LightGBM:  Missing values are gracefully treated by considering missing values as candidate for tree splitting point." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://ffflora.github.io/posts/how-to-be-a-kaggle-master/" />
 <meta property="article:published_time" content="2019-09-05T13:27:11-07:00" />
@@ -109,7 +109,7 @@ Feature Engineering, Hyperparameter Tuning, Model Ensemble Data Preprocessing: M
             </span>
             <span class="reading-time">
               <i class="fas fa-clock"></i>
-              One minute read
+              2 minutes read
             </span>
           </div>
           <div class="categories">
@@ -132,7 +132,7 @@ Feature Engineering, Hyperparameter Tuning, Model Ensemble Data Preprocessing: M
 
 <p>Kaggle Combo x3:</p>
 
-<h3 id="u-feature-engineering-hyperparameter-tuning-model-ensemble-u"><u>Feature Engineering, Hyperparameter Tuning, Model Ensemble</u></h3>
+<h3 id="u-feature-engineering-model-tuning-model-ensemble-u"><u>Feature Engineering, Model Tuning, Model Ensemble</u></h3>
 
 <hr />
 
@@ -189,6 +189,58 @@ Feature Engineering, Hyperparameter Tuning, Model Ensemble Data Preprocessing: M
 <p><img src="https://raw.githubusercontent.com/ffflora/ffflora.github.io/master/i/kaggle-master/6.png" alt="" /></p>
 
 <p><img src="https://raw.githubusercontent.com/ffflora/ffflora.github.io/master/i/kaggle-master/7.png" alt="" /></p>
+
+<p><img src="https://raw.githubusercontent.com/ffflora/ffflora.github.io/master/i/kaggle-master/8.png" alt="" /></p>
+
+<hr />
+
+<h3 id="model-tuning">Model Tuning</h3>
+
+<blockquote>
+<p>Tuning a machine learning algorithm is often a &ldquo;Black Art&rdquo; that requires expert experience, unwritten rules of thumb, or sometimes brute-force search. &ndash; Jasper Snoek</p>
+</blockquote>
+
+<p><img src="https://raw.githubusercontent.com/ffflora/ffflora.github.io/master/i/kaggle-master/9.png" alt="" /></p>
+
+<p>Hyperparameter cheat sheet</p>
+
+<p><a href="http://blog.kaggle.com/2016/07/21/approaching-almost-any-machine-learning-problem-abhishek-thakur/">Approaching (Almost) Any Machine Learning Problem | Abhishek Thakur</a></p>
+
+<p>Take <strong>XGBoost</strong> as an example:</p>
+
+<ul>
+<li>Tree</li>
+</ul>
+
+<p><img src="https://raw.githubusercontent.com/ffflora/ffflora.github.io/master/i/kaggle-master/10.png" alt="" /></p>
+
+<p>if too much <strong>depth</strong>, might be overfitting; if less depth, might not overfitting.</p>
+
+<ul>
+<li>stochastic</li>
+</ul>
+
+<p><img src="https://raw.githubusercontent.com/ffflora/ffflora.github.io/master/i/kaggle-master/11.png" alt="" /></p>
+
+<ul>
+<li>boosting</li>
+</ul>
+
+<p>步长和步数的关系；刚开始 tune 的时候，可能需要 larger learning rate, when training the model, could use smaller learning rate.</p>
+
+<p><img src="https://raw.githubusercontent.com/ffflora/ffflora.github.io/master/i/kaggle-master/12.png" alt="" /></p>
+
+<hr />
+
+<h3 id="model-ensmble">Model Ensmble</h3>
+
+<p><strong>Stacking</strong> is very common in Kaggle community, was a fancy technique, but not fancy any more nowadays.</p>
+
+<p>Ensemble in industry is not common in use, because it is too heavy to maintain, and sometimes it is not very explicable.  The only exception in the industry is Facebook is using <strong>GBDT+Linear</strong> <strong>Regression</strong>; Linear Regression is fast, but low in accuracy; thus using a combination of GBDT with Linear Regression could make the processing fast at the same time keep the accuracy.</p>
+
+<p>example:</p>
+
+<p><img src="https://raw.githubusercontent.com/ffflora/ffflora.github.io/master/i/kaggle-master/13.png" alt="" /></p>
 
       </div>
 

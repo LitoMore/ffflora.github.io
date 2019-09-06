@@ -18,7 +18,7 @@
       
       <guid>https://ffflora.github.io/posts/how-to-be-a-kaggle-master/</guid>
       <description>How to be a Kaggle Master Kaggle Combo x3:
-Feature Engineering, Hyperparameter Tuning, Model Ensemble Data Preprocessing: Missing values imputation:  Numeric Features  Impute with mean for normal distributed feature Impute with median for skewed distribution (reduce the impacts of outliers)  Categorical Features  Majority Imputation  Supervised Learning Imputation  Regression/Classification  XGBoost/LightGBM:  Missing values are gracefully treated by considering missing values as candidate for tree splitting point.</description>
+Feature Engineering, Model Tuning, Model Ensemble Data Preprocessing: Missing values imputation:  Numeric Features  Impute with mean for normal distributed feature Impute with median for skewed distribution (reduce the impacts of outliers)  Categorical Features  Majority Imputation  Supervised Learning Imputation  Regression/Classification  XGBoost/LightGBM:  Missing values are gracefully treated by considering missing values as candidate for tree splitting point.</description>
     </item>
     
     <item>
