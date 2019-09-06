@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Flora&#39;s</title>
-    <link>https://ffflora.github.io/</link>
-    <description>Recent content on Flora&#39;s</description>
+    <title>读书笔记 on Flora&#39;s</title>
+    <link>https://ffflora.github.io/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</link>
+    <description>Recent content in 读书笔记 on Flora&#39;s</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 06 Sep 2019 15:07:48 -0700</lastBuildDate>
     
-	<atom:link href="https://ffflora.github.io/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://ffflora.github.io/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -58,52 +58,6 @@
 第9章 美团的未来：O2O帝国？ 企业家精神最精到的描写是，企业家本质是对机会的追求，暂时无视自己现在控制多少资源。
 第10章 十年之思 “大部分人望着高峰，但他一生从来不曾攀上过，只是听听别人的经验就已经很满足，而自己不愿意花费任何心血；第二种人依照前人的成功经验，成功登顶了；第三种人没有登顶的经验，但是他又怀疑前人登顶的经验，于是他决定自己探索出一条路来，最终也成功登顶了。第三种人于是明白了，登山没有一条唯一固定的道路，有多少人就有多少条路。”
 我学到，人非常重要的状态是既非常自信又非常谦逊。</description>
-    </item>
-    
-    <item>
-      <title>How to be a Kaggle Master?</title>
-      <link>https://ffflora.github.io/posts/how-to-be-a-kaggle-master/</link>
-      <pubDate>Thu, 05 Sep 2019 13:27:11 -0700</pubDate>
-      
-      <guid>https://ffflora.github.io/posts/how-to-be-a-kaggle-master/</guid>
-      <description>How to be a Kaggle Master Kaggle Combo x3:
-Feature Engineering, Model Tuning, Model Ensemble Data Preprocessing: Missing values imputation:  Numeric Features  Impute with mean for normal distributed feature Impute with median for skewed distribution (reduce the impacts of outliers)  Categorical Features  Majority Imputation  Supervised Learning Imputation  Regression/Classification  XGBoost/LightGBM:  Missing values are gracefully treated by considering missing values as candidate for tree splitting point.</description>
-    </item>
-    
-    <item>
-      <title>Use Auto-completion in gcloud</title>
-      <link>https://ffflora.github.io/posts/gcloud-and-cloud-shell/</link>
-      <pubDate>Wed, 28 Aug 2019 00:02:53 -0700</pubDate>
-      
-      <guid>https://ffflora.github.io/posts/gcloud-and-cloud-shell/</guid>
-      <description>This notes is from Qwiklabs GCP Essentials.
-Auto-completion gcloud interactive has auto prompting for commands and flags, and displays inline help snippets in the lower section as the command is typed.
-Static information, like command and sub-command names, and flag names and enumerated flag values, are auto-completed using dropdown menus.
-Install the beta components:
-gcloud components install beta Enter the gcloud interactive mode:
-gcloud beta interactive When using the interactive mode, click on the Tab key to complete file path and resource arguments.</description>
-    </item>
-    
-    <item>
-      <title>How to read csv files under .gz in Kaggle kernel?</title>
-      <link>https://ffflora.github.io/posts/read-gz-in-kaggle/</link>
-      <pubDate>Tue, 27 Aug 2019 00:23:55 -0700</pubDate>
-      
-      <guid>https://ffflora.github.io/posts/read-gz-in-kaggle/</guid>
-      <description>It took me long time to figure it out.
-Say if the files&amp;rsquo; directory in the Kaggle kernel looks like this:
-competitive-data-science-predict-future-sales sales_train.csv.gz sales_train.csv When I try to list all the files in the directory, I realize that there&amp;rsquo;s no need to unzip the .gz file in order to get the .csv files, since
-import os data_dir = &amp;#39;/kaggle/input/competitive-data-science-predict-future-sales&amp;#39; os.listdir(data_dir) the output is:
-[&amp;#39;test.csv&amp;#39;, &amp;#39;item_categories.csv&amp;#39;, &amp;#39;sales_train.csv&amp;#39;, &amp;#39;sample_submission.csv&amp;#39;, &amp;#39;items.csv&amp;#39;, &amp;#39;shops.csv&amp;#39;] Thus in order to use the .</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://ffflora.github.io/render/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://ffflora.github.io/render/</guid>
-      <description>Awesome-pyechartsvar chart_f004fbb53bef41948d6148e8f915d66b = echarts.init(document.getElementById(&#39;f004fbb53bef41948d6148e8f915d66b&#39;), &#39;white&#39;, {renderer: &#39;canvas&#39;});var option_f004fbb53bef41948d6148e8f915d66b = {&#34;animation&#34;: true,&#34;animationThreshold&#34;: 2000,&#34;animationDuration&#34;: 1000,&#34;animationEasing&#34;: &#34;cubicOut&#34;,&#34;animationDelay&#34;: 0,&#34;animationDurationUpdate&#34;: 300,&#34;animationEasingUpdate&#34;: &#34;cubicOut&#34;,&#34;animationDelayUpdate&#34;: 0,&#34;color&#34;: [&#34;white&#34;,&#34;#c23531&#34;,&#34;#2f4554&#34;,&#34;#61a0a8&#34;,&#34;#d48265&#34;,&#34;#749f83&#34;,&#34;#ca8622&#34;,&#34;#bda29a&#34;,&#34;#6e7074&#34;,&#34;#546570&#34;,&#34;#c4ccd3&#34;,&#34;#f05b72&#34;,&#34;#ef5b9c&#34;,&#34;#f47920&#34;,&#34;#905a3d&#34;,&#34;#fab27b&#34;,&#34;#2a5caa&#34;,&#34;#444693&#34;,&#34;#726930&#34;,&#34;#b2d235&#34;,&#34;#6d8346&#34;,&#34;#ac6767&#34;,&#34;#1d953f&#34;,&#34;#6950a1&#34;,&#34;#918597&#34;],&#34;series&#34;: [{&#34;type&#34;: &#34;effectScatter&#34;,&#34;</description>
     </item>
     
   </channel>
