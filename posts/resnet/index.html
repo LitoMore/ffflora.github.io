@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Flora Jiang">
+    <meta name="description" content="Flora&#39;s personal website">
+    <meta name="keywords" content="blog,data,personal">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Resnet 算法详解"/>
+<meta name="twitter:description" content="ResNet 详解 The Resnet Paper is here: Deep Residual Learning for Image Recognition
+Netscope CNN Analyzer
+网络加深性能并不一定使模型变得更强，层数更多并不总是有更准确的结果，解决方法之一是 可以构造一个性能与浅层模型相当的结构。Residual function 顾名思义就是残差，是根据论文里 Figure2, y = F(x) &#43; x, 需要学习的是 F, F(x) = y - x, F 就是 residual.
+残差学习？残差网络？ 残差学习模块有两个分支：一是左侧的残差函数，二是右侧的对输入的恒等映射。这两个分支经过对应元素的相加之后，再经过一个非线性的变换 ReLU 激活函数，从而形成整个残差学习模块。将若干个残差模块堆叠，就成为了 残差网络。
+ResNet 可以构建很深的神经网络，比如 ResNet -50/101/152 等。
+ResNet - v2 ResNet 后期推出了更多其它的链接方式，但是实验之后发现还是没有 identity shortcut 好。
+Pre-activation Residual Module:  原先 Residual Block 是 CBR(Conv, BN, ReLU) 结构 BRC(BN, ReLU, Conv) 结构 activate 在 conv 之前。被称作为 pre-activation 结构。  ResNeXt ResNeXt 转向对神经网络拓扑设计的研究，对 block 堆叠的策略；"/>
+
+    <meta property="og:title" content="Resnet 算法详解" />
+<meta property="og:description" content="ResNet 详解 The Resnet Paper is here: Deep Residual Learning for Image Recognition
+Netscope CNN Analyzer
+网络加深性能并不一定使模型变得更强，层数更多并不总是有更准确的结果，解决方法之一是 可以构造一个性能与浅层模型相当的结构。Residual function 顾名思义就是残差，是根据论文里 Figure2, y = F(x) &#43; x, 需要学习的是 F, F(x) = y - x, F 就是 residual.
+残差学习？残差网络？ 残差学习模块有两个分支：一是左侧的残差函数，二是右侧的对输入的恒等映射。这两个分支经过对应元素的相加之后，再经过一个非线性的变换 ReLU 激活函数，从而形成整个残差学习模块。将若干个残差模块堆叠，就成为了 残差网络。
+ResNet 可以构建很深的神经网络，比如 ResNet -50/101/152 等。
+ResNet - v2 ResNet 后期推出了更多其它的链接方式，但是实验之后发现还是没有 identity shortcut 好。
+Pre-activation Residual Module:  原先 Residual Block 是 CBR(Conv, BN, ReLU) 结构 BRC(BN, ReLU, Conv) 结构 activate 在 conv 之前。被称作为 pre-activation 结构。  ResNeXt ResNeXt 转向对神经网络拓扑设计的研究，对 block 堆叠的策略；" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ffflora.github.io/posts/resnet/" />
+<meta property="article:published_time" content="2019-09-06T18:08:34-07:00" />
+<meta property="article:modified_time" content="2019-09-06T18:08:34-07:00" />
+
+
+    
+      <base href="https://ffflora.github.io/posts/resnet/">
+    
+    <title>
+  Resnet 算法详解 · Flora&#39;s
+</title>
+
+    
+      <link rel="canonical" href="https://ffflora.github.io/posts/resnet/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://ffflora.github.io/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+      <link rel="stylesheet" href="https://ffflora.github.io/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" />
+    
+
+    
+    
+    <link rel="icon" type="image/png" href="https://ffflora.github.io/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://ffflora.github.io/img/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.57.2" />
+  </head>
+
+  <body class=" ">
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="https://ffflora.github.io/">
+      Flora&#39;s
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://ffflora.github.io/posts/">Blog</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://ffflora.github.io/resume.pdf">Resume</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://ffflora.github.io/render.html/"></a>
+          </li>
+        
+      
+      
+    </ul>
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">Resnet 算法详解</h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fas fa-calendar"></i>
+              <time datetime='2019-09-06T18:08:34-07:00'>
+                September 6, 2019
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fas fa-clock"></i>
+              One minute read
+            </span>
+          </div>
+          <div class="categories">
+  <i class="fas fa-folder"></i>
+    <a href="https://ffflora.github.io/categories/data-science/">Data Science</a></div>
+
+          <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="https://ffflora.github.io/tags/%E4%B8%AD%E6%96%87/">中文</a>
+      <span class="separator">•</span>
+    <a href="https://ffflora.github.io/tags/%E7%AE%97%E6%B3%95/">算法</a>
+      <span class="separator">•</span>
+    <a href="https://ffflora.github.io/tags/deep-learning/">Deep Learning</a></div>
+
+        </div>
+      </header>
+
+      <div>
+        
+
+<h1 id="resnet-详解">ResNet 详解</h1>
+
+<p>The Resnet Paper is here: <a href="https://arxiv.org/abs/1512.03385">Deep Residual Learning for Image Recognition</a></p>
+
+<p><a href="https://dgschwend.github.io/netscope/quickstart.html">Netscope CNN Analyzer</a></p>
+
+<hr />
+
+<p>网络加深性能并不一定使模型变得更强，层数更多并不总是有更准确的结果，解决方法之一是 可以构造一个性能与<u>浅层模型</u>相当的结构。Residual function 顾名思义就是残差，是根据论文里 Figure2,  <em>y = F(x) + x</em>, 需要学习的是 F, <em>F(x) = y - x</em>, F 就是 residual.</p>
+
+<h3 id="残差学习-残差网络">残差学习？残差网络？</h3>
+
+<p>残差学习模块有两个分支：一是左侧的残差函数，二是右侧的对输入的恒等映射。这两个分支经过对应元素的相加之后，再经过一个非线性的变换 ReLU 激活函数，从而形成整个残差学习模块。将若干个残差模块堆叠，就成为了 残差网络。</p>
+
+<p>ResNet 可以构建很深的神经网络，比如 ResNet -50/101/152 等。</p>
+
+<hr />
+
+<h3 id="resnet-v2">ResNet - v2</h3>
+
+<p>ResNet 后期推出了更多其它的链接方式，但是实验之后发现还是没有 identity shortcut 好。</p>
+
+<h4 id="pre-activation-residual-module">Pre-activation Residual Module:</h4>
+
+<ul>
+<li>原先 Residual Block 是 CBR(Conv, BN, ReLU) 结构</li>
+<li>BRC(BN, ReLU, Conv) 结构 activate 在 conv 之前。被称作为 pre-activation 结构。</li>
+</ul>
+
+<hr />
+
+<h3 id="resnext">ResNeXt</h3>
+
+<p>ResNeXt 转向对神经网络拓扑设计的研究，对 block 堆叠的策略；</p>
+
+<p>GoogleNet/GoogleNet-v2/Inception 的一些设计理念加入到了 ResNeXt 当中，主要采用了一个多端链接的结构。</p>
+
+<ul>
+<li><p>32 次重复 bottleneck 模块，增加 pass</p></li>
+
+<li><p>add a Cardinality</p></li>
+
+<li><p>Residual shortcut</p></li>
+
+<li><p>为了得到与 ResNet 参数量相当的 resNeXt, 可以按照下面这个公式确定 ResNeXt block 的C and d:</p></li>
+</ul>
+
+<p><em>C·(256·d + 3·3·d·d + d·256) = the amount of params of the corresponding ResNet module</em></p>
+
+<hr />
+
+<h3 id="se-resnext">SE-ResNeXt</h3>
+
+<p>这个算法是 ImageNet 2017 Competition Image Classification 的冠军。通过比较前面的方法，这个算法从增加 gaps 和 channel 来提升网络的性能和宽度。这个算法的目标就是希望 explicitly 把 特征通道之间的相互依赖关系建立起来；它采用了一种全新的【特征重标定】的策略：通过学习的方式来自动获取每个特征通道的重要程度，然后依照这个重要程度去提升有用的特征并抑制对当前任务用处不大的特征，也就是对特征通道建立了一个更加细致并且简单的建模。</p>
+
+      </div>
+
+      <footer>
+        
+
+
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "ffflora-github-io" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+      <p>Happy Analyzing!</p>
+    
+    
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-146589116-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+
+  </body>
+
+</html>
