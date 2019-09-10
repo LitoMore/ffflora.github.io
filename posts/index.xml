@@ -19,10 +19,9 @@
       <guid>https://ffflora.github.io/posts/re.s-in-python/</guid>
       <description>今天在使用 Python Regex 的时候遇到了一个神奇参数 re.S, 这玩意儿的学名是 dot matches all,
  Make the &#39;.&#39; special character match any character at all, including a newline; without this flag, &#39;.&#39; will match anything except a newline.
- 在使用这个参数时，可以使 Regex 的操作作用在全部字符串中，包括\n和缩进。在没有使用此参数时， Regex 的操作会忽略 \n.
+ 在使用这个参数时，可以使 Regex 的操作作用在全部字符串中，包括 \n 和缩进。在没有使用此参数时， Regex 的操作会忽略 \n.
 Example:
-import re test1 = &amp;#39;abcabc123flora789 github jiang996&amp;#39; test2 = &amp;#39;&amp;#39;&amp;#39;abcabc123flora 789 github jiang996&amp;#39;&amp;#39;&amp;#39; a = re.findall(&amp;#39;flora(.*?)jiang&amp;#39;,test1) b = re.findall(&amp;#39;flora(.*?)jiang&amp;#39;,test1,re.S) c = re.findall(&amp;#39;flora(.*?)jiang&amp;#39;,test2) d = re.findall(&amp;#39;flora(.*?)jiang&amp;#39;,test2,re.S) print(a,&amp;#39;\n&amp;#39;,b,&amp;#39;\n&amp;#39;,c,&amp;#39;\n&amp;#39;,d,&amp;#39;\n&amp;#39;) output:
-[&amp;#39;789 github &amp;#39;] [&amp;#39;789 github &amp;#39;] [] [&amp;#39;\n 789 github &amp;#39;]  Reference:</description>
+import re test1 = &amp;#39;abcabc123flora789 github jiang996&amp;#39; test2 = &amp;#39;&amp;#39;&amp;#39;abcabc123flora 789 github jiang996&amp;#39;&amp;#39;&amp;#39; a = re.findall(&amp;#39;flora(.*?)jiang&amp;#39;,test1) b = re.findall(&amp;#39;flora(.*?)jiang&amp;#39;,test1,re.S) c = re.findall(&amp;#39;flora(.*?)jiang&amp;#39;,test2) d = re.findall(&amp;#39;flora(.*?)jiang&amp;#39;,test2,re.S) print(a,&amp;#39;\n&amp;#39;,b,&amp;#39;\n&amp;#39;,c,&amp;#39;\n&amp;#39;,d,&amp;#39;\n&amp;#39;) output:</description>
     </item>
     
     <item>
