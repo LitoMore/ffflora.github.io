@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Flora Jiang">
+    <meta name="description" content="Flora&#39;s personal website">
+    <meta name="keywords" content="blog,data,personal">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="正则表达式中的 re.S 在 Python 中的使用"/>
+<meta name="twitter:description" content="今天在使用 Python Regex 的时候遇到了一个神奇参数 re.S, 这玩意儿的学名是 dot matches all,
+ Make the &#39;.&#39; special character match any character at all, including a newline; without this flag, &#39;.&#39; will match anything except a newline.
+ 在使用这个参数时，可以使 Regex 的操作作用在全部字符串中，包括\n和缩进。在没有使用此参数时， Regex 的操作会忽略 \n.
+Example:
+import re test1 = &#39;abcabc123flora789 github jiang996&#39; test2 = &#39;&#39;&#39;abcabc123flora 789 github jiang996&#39;&#39;&#39; a = re.findall(&#39;flora(.*?)jiang&#39;,test1) b = re.findall(&#39;flora(.*?)jiang&#39;,test1,re.S) c = re.findall(&#39;flora(.*?)jiang&#39;,test2) d = re.findall(&#39;flora(.*?)jiang&#39;,test2,re.S) print(a,&#39;\n&#39;,b,&#39;\n&#39;,c,&#39;\n&#39;,d,&#39;\n&#39;) output:
+[&#39;789 github &#39;] [&#39;789 github &#39;] [] [&#39;\n 789 github &#39;]  Reference:"/>
+
+    <meta property="og:title" content="正则表达式中的 re.S 在 Python 中的使用" />
+<meta property="og:description" content="今天在使用 Python Regex 的时候遇到了一个神奇参数 re.S, 这玩意儿的学名是 dot matches all,
+ Make the &#39;.&#39; special character match any character at all, including a newline; without this flag, &#39;.&#39; will match anything except a newline.
+ 在使用这个参数时，可以使 Regex 的操作作用在全部字符串中，包括\n和缩进。在没有使用此参数时， Regex 的操作会忽略 \n.
+Example:
+import re test1 = &#39;abcabc123flora789 github jiang996&#39; test2 = &#39;&#39;&#39;abcabc123flora 789 github jiang996&#39;&#39;&#39; a = re.findall(&#39;flora(.*?)jiang&#39;,test1) b = re.findall(&#39;flora(.*?)jiang&#39;,test1,re.S) c = re.findall(&#39;flora(.*?)jiang&#39;,test2) d = re.findall(&#39;flora(.*?)jiang&#39;,test2,re.S) print(a,&#39;\n&#39;,b,&#39;\n&#39;,c,&#39;\n&#39;,d,&#39;\n&#39;) output:
+[&#39;789 github &#39;] [&#39;789 github &#39;] [] [&#39;\n 789 github &#39;]  Reference:" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ffflora.github.io/posts/re.s-in-python/" />
+<meta property="article:published_time" content="2019-09-10T00:56:58-07:00" />
+<meta property="article:modified_time" content="2019-09-10T00:56:58-07:00" />
+
+
+    
+      <base href="https://ffflora.github.io/posts/re.s-in-python/">
+    
+    <title>
+  正则表达式中的 re.S 在 Python 中的使用 · Flora&#39;s
+</title>
+
+    
+      <link rel="canonical" href="https://ffflora.github.io/posts/re.s-in-python/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://ffflora.github.io/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+      <link rel="stylesheet" href="https://ffflora.github.io/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" />
+    
+
+    
+    
+    <link rel="icon" type="image/png" href="https://ffflora.github.io/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://ffflora.github.io/img/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.57.2" />
+  </head>
+
+  <body class=" ">
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="https://ffflora.github.io/">
+      Flora&#39;s
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://ffflora.github.io/posts/">Blog</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://ffflora.github.io/resume.pdf">Resume</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://ffflora.github.io/render.html/"></a>
+          </li>
+        
+      
+      
+    </ul>
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">正则表达式中的 re.S 在 Python 中的使用</h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fas fa-calendar"></i>
+              <time datetime='2019-09-10T00:56:58-07:00'>
+                September 10, 2019
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fas fa-clock"></i>
+              One minute read
+            </span>
+          </div>
+          <div class="categories">
+  <i class="fas fa-folder"></i>
+    <a href="https://ffflora.github.io/categories/python/">Python</a></div>
+
+          <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="https://ffflora.github.io/tags/%E4%B8%AD%E6%96%87/">中文</a></div>
+
+        </div>
+      </header>
+
+      <div>
+        <p>今天在使用 Python Regex 的时候遇到了一个神奇参数 <code>re.S</code>, 这玩意儿的学名是 <code>dot matches all</code>,</p>
+
+<blockquote>
+<p>Make the <code>'.'</code> special character match any character at all, including a newline; without this flag, <code>'.'</code> will match anything <em>except</em> a newline.</p>
+</blockquote>
+
+<p>在使用这个参数时，可以使 Regex 的操作作用在全部字符串中，包括<code>\n</code>和缩进。在没有使用此参数时， Regex 的操作会忽略  <code>\n</code>.</p>
+
+<p>Example:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="font-weight:bold">import</span> <span style="font-weight:bold">re</span>
+test1 = <span style="font-style:italic">&#39;abcabc123flora789 github jiang996&#39;</span>
+test2 = <span style="font-style:italic">&#39;&#39;&#39;abcabc123flora
+</span><span style="font-style:italic">            789 github jiang996&#39;&#39;&#39;</span>
+a = re.findall(<span style="font-style:italic">&#39;flora(.*?)jiang&#39;</span>,test1)
+b = re.findall(<span style="font-style:italic">&#39;flora(.*?)jiang&#39;</span>,test1,re.S)
+
+c = re.findall(<span style="font-style:italic">&#39;flora(.*?)jiang&#39;</span>,test2)
+d = re.findall(<span style="font-style:italic">&#39;flora(.*?)jiang&#39;</span>,test2,re.S)
+<span style="font-weight:bold">print</span>(a,<span style="font-style:italic">&#39;</span><span style="font-weight:bold;font-style:italic">\n</span><span style="font-style:italic">&#39;</span>,b,<span style="font-style:italic">&#39;</span><span style="font-weight:bold;font-style:italic">\n</span><span style="font-style:italic">&#39;</span>,c,<span style="font-style:italic">&#39;</span><span style="font-weight:bold;font-style:italic">\n</span><span style="font-style:italic">&#39;</span>,d,<span style="font-style:italic">&#39;</span><span style="font-weight:bold;font-style:italic">\n</span><span style="font-style:italic">&#39;</span>)</code></pre></div>
+<p>output:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">[&#39;789 github &#39;] 
+ [&#39;789 github &#39;] 
+ [] 
+ [&#39;\n            789 github &#39;] </pre></div>
+<hr />
+
+<p>Reference:</p>
+
+<p><a href="https://docs.python.org/3.4/library/re.html">Python 3.4.10 Documentation: Regular expression operations</a></p>
+
+      </div>
+
+      <footer>
+        
+
+
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "ffflora-github-io" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+      <p>Happy Analyzing!</p>
+    
+    
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-146589116-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+
+  </body>
+
+</html>
