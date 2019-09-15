@@ -6,10 +6,21 @@
     <description>Recent content in Google Cloud on Flora&#39;s</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 28 Aug 2019 00:02:53 -0700</lastBuildDate>
+    <lastBuildDate>Sat, 14 Sep 2019 21:02:06 -0700</lastBuildDate>
     
 	<atom:link href="https://ffflora.github.io/tags/google-cloud/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>How to setup Kubernetes on GCP</title>
+      <link>https://ffflora.github.io/posts/kubernetes/</link>
+      <pubDate>Sat, 14 Sep 2019 21:02:06 -0700</pubDate>
+      
+      <guid>https://ffflora.github.io/posts/kubernetes/</guid>
+      <description>Creating a Kubernetes Engine cluster gcloud container clusters create [CLUSTER-NAME] Get authentication credentials for the cluster gcloud container clusters get-credentials [CLUSTER-NAME] Deploying an application to the cluster use kubectl run command to create a new Deployment
+kubectl run hello-server --image=gcr.io/google-samples/hello-app:1.0 --port 8080 This Kubernetes command creates a Deployment object that represents hello-app. In this command:
+ --image specifies a container image to deploy. In this case, the command pulls the example image from a Google Container Registry bucket.</description>
+    </item>
     
     <item>
       <title>Use Auto-completion in gcloud</title>
