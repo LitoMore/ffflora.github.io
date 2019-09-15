@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Flora Jiang">
+    <meta name="description" content="Flora&#39;s personal website">
+    <meta name="keywords" content="blog,data,personal">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Set Up Network and HTTP Load Balancers in GCP"/>
+<meta name="twitter:description" content="This note is based on GCP Qwiklab Essentials.
+Create multiple web server instances To simulate serving from a cluster of machines, create a simple cluster of Nginx web servers to serve static content using Instance Templates and Managed Instance Groups. Instance Templates define the look of every virtual machine in the cluster (disk, CPUs, memory, etc). Managed Instance Groups instantiate a number of virtual machine instances using the Instance Template."/>
+
+    <meta property="og:title" content="Set Up Network and HTTP Load Balancers in GCP" />
+<meta property="og:description" content="This note is based on GCP Qwiklab Essentials.
+Create multiple web server instances To simulate serving from a cluster of machines, create a simple cluster of Nginx web servers to serve static content using Instance Templates and Managed Instance Groups. Instance Templates define the look of every virtual machine in the cluster (disk, CPUs, memory, etc). Managed Instance Groups instantiate a number of virtual machine instances using the Instance Template." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ffflora.github.io/posts/network-and-http/" />
+<meta property="article:published_time" content="2019-09-14T22:30:48-07:00" />
+<meta property="article:modified_time" content="2019-09-14T22:30:48-07:00" />
+
+
+    
+      <base href="https://ffflora.github.io/posts/network-and-http/">
+    
+    <title>
+  Set Up Network and HTTP Load Balancers in GCP · Flora&#39;s
+</title>
+
+    
+      <link rel="canonical" href="https://ffflora.github.io/posts/network-and-http/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://ffflora.github.io/css/coder.min.4c6fcdf76ee3d92d0bdf8069e772433840f81d68ed1e743b0d7a09ca0cd4421d.css" integrity="sha256-TG/N927j2S0L34Bp53JDOED4HWjtHnQ7DXoJygzUQh0=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+
+    
+    
+    <link rel="icon" type="image/png" href="https://ffflora.github.io/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://ffflora.github.io/img/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.57.2" />
+  </head>
+
+  <body class=" ">
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="https://ffflora.github.io/">
+      Flora&#39;s
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://ffflora.github.io/posts/">Blog</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://ffflora.github.io/resume.pdf">Resume</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://ffflora.github.io/render.html/"></a>
+          </li>
+        
+      
+      
+    </ul>
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">Set Up Network and HTTP Load Balancers in GCP</h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fas fa-calendar"></i>
+              <time datetime='2019-09-14T22:30:48-07:00'>
+                September 14, 2019
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fas fa-clock"></i>
+              5 minutes read
+            </span>
+          </div>
+          <div class="categories">
+  <i class="fas fa-folder"></i>
+    <a href="https://ffflora.github.io/categories/data-science/">Data Science</a></div>
+
+          <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="https://ffflora.github.io/tags/google-cloud/">Google Cloud</a></div>
+
+        </div>
+      </header>
+
+      <div>
+        
+
+<p>This note is based on GCP Qwiklab Essentials.</p>
+
+<h2 id="create-multiple-web-server-instances">Create multiple web server instances</h2>
+
+<p>To simulate serving from a cluster of machines, create a simple cluster of Nginx web servers to serve static content using  <a href="https://cloud.google.com/compute/docs/instance-templates">Instance Templates</a> and  <a href="https://cloud.google.com/compute/docs/instance-groups/">Managed Instance Groups</a>.  Instance Templates define the look of every virtual machine in the  cluster (disk, CPUs, memory, etc). Managed Instance Groups instantiate a  number of virtual machine instances using the Instance Template.</p>
+
+<p>To create the Nginx web server clusters, create the following:</p>
+
+<ul>
+<li>A startup script to be used by every virtual machine instance to setup Nginx server upon startup</li>
+<li>An instance template to use the startup script</li>
+<li>A target pool</li>
+<li>A managed instance group using the instance template</li>
+</ul>
+
+<p>Still in Cloud Shell, create a startup script to be used by every  virtual machine instance. This script sets up the Nginx server upon  startup:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">cat <span style="font-style:italic">&lt;&lt; EOF &gt; startup.sh
+</span><span style="font-style:italic">#! /bin/bash
+</span><span style="font-style:italic">apt-get update
+</span><span style="font-style:italic">apt-get install -y nginx
+</span><span style="font-style:italic">service nginx start
+</span><span style="font-style:italic">sed -i -- &#39;s/nginx/Google Cloud Platform - &#39;&#34;\$HOSTNAME&#34;&#39;/&#39; /var/www/html/index.nginx-debian.html
+</span><span style="font-style:italic">EOF</span></code></pre></div>
+<p>Create an instance template, which uses the startup script:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">gcloud compute instance-templates create nginx-template <span style="font-weight:bold;font-style:italic">\
+</span><span style="font-weight:bold;font-style:italic"></span>         --metadata-from-file startup-script=startup.sh</code></pre></div>
+<p>Create a target pool. A target pool allows a single access point to  all the instances in a group and is necessary for load balancing in the  future steps.</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">gcloud compute target-pools create nginx-pool</code></pre></div>
+<p>Create a managed instance group using the instance template:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">gcloud compute instance-groups managed create nginx-group <span style="font-weight:bold;font-style:italic">\
+</span><span style="font-weight:bold;font-style:italic"></span>         --base-instance-name nginx <span style="font-weight:bold;font-style:italic">\
+</span><span style="font-weight:bold;font-style:italic"></span>         --size 2 <span style="font-weight:bold;font-style:italic">\
+</span><span style="font-weight:bold;font-style:italic"></span>         --template nginx-template <span style="font-weight:bold;font-style:italic">\
+</span><span style="font-weight:bold;font-style:italic"></span>         --target-pool nginx-pool</code></pre></div>
+<p>(Output)</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">Created [...].
+NAME         LOCATION       SCOPE  BASE_INSTANCE_NAME  SIZE  TARGET_SIZE  INSTANCE_TEMPLATE  AUTOSCALED
+nginx-group  us-central1-a  zone   nginx               0     2            nginx-template     no</code></pre></div>
+<p>This creates 2 virtual machine instances with names that are prefixed with <code>nginx-</code>. This may take a couple of minutes.</p>
+
+<p>List the compute engine instances and you should see all of the instances created:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">gcloud compute instances list</pre></div>
+<p>(Output)</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">NAME       ZONE           MACHINE_TYPE  PREEMPTIBLE INTERNAL_IP EXTERNAL_IP    STATUS
+nginx-7wvi us-central1-a n1-standard-1             10.240.X.X  X.X.X.X           RUNNING
+nginx-9mwd us-central1-a n1-standard-1             10.240.X.X  X.X.X.X           RUNNING</code></pre></div>
+<p>Now configure a firewall so that you can connect to the machines on port 80 via the <code>EXTERNAL_IP</code> addresses:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">gcloud compute firewall-rules create www-firewall --allow tcp:80</pre></div>
+<p>You should be able to connect to each of the instances via their external IP addresses via <code>http://EXTERNAL_IP/</code></p>
+
+<h2 id="create-a-network-load-balancer">Create a Network Load Balancer</h2>
+
+<p>Network load balancing allows you to balance the load of your systems  based on incoming IP protocol data, such as address, port, and protocol  type. You also get some options that are not available, with HTTP(S)  load balancing. For example, you can load balance additional  TCP/UDP-based protocols such as SMTP traffic. And if your application is  interested in TCP-connection-related characteristics, network load  balancing allows your app to inspect the packets, where HTTP(S) load  balancing does not.</p>
+
+<p>For more information, see <a href="https://cloud.google.com/compute/docs/load-balancing/network/">Setting Up Network Load Balancing</a>.</p>
+
+<p>Create an L3 network load balancer targeting your instance group:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">gcloud compute forwarding-rules create nginx-lb \
+         --region us-central1 \
+         --ports=80 \
+         --target-pool nginx-pool</pre></div>
+<p>(Output)</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">Created [https://www.googleapis.com/compute/v1/projects/...].</code></pre></div>
+<p>List all Google Compute Engine forwarding rules in your project.</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">gcloud compute forwarding-rules list</pre></div>
+<p>(Output)</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">NAME     REGION       IP_ADDRESS     IP_PROTOCOL TARGET
+nginx-lb us-central1 X.X.X.X        TCP         us-central1/targetPools/nginx-pool</code></pre></div>
+<p>You can then visit the load balancer from the browser <code>http://IP_ADDRESS/</code><code>IP_ADDRESS</code></p>
+
+<h2 id="create-a-http-s-load-balancer">Create a HTTP(s) Load Balancer</h2>
+
+<p>HTTP(S) load balancing provides global load balancing for HTTP(S)  requests destined for your instances. You can configure URL rules that  route some URLs to one set of instances and route other URLs to other  instances. Requests are always routed to the instance group that is  closest to the user, provided that group has enough capacity and is  appropriate for the request. If the closest group does not have enough  capacity, the request is sent to the closest group that does have  capacity.</p>
+
+<p>Learn more about the <a href="https://cloud.google.com/compute/docs/load-balancing/http/">HTTP(s) Load Balancer in the documentation</a>.</p>
+
+<p>First, create a  <a href="https://cloud.google.com/compute/docs/load-balancing/health-checks">health check</a>. Health checks verify that the instance is responding to HTTP or HTTPS traffic:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">gcloud compute http-health-checks create http-basic-check</pre></div>
+<p>Define  an HTTP service and map a port name to the relevant port for the  instance group. Now the load balancing service can forward traffic to  the named port:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">gcloud compute instance-groups managed \
+       set-named-ports nginx-group \
+       --named-ports http:80</pre></div>
+<p>Create a  <a href="https://cloud.google.com/compute/docs/reference/latest/backendServices">backend service</a>:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">gcloud compute backend-services create nginx-backend \
+      --protocol HTTP --http-health-checks http-basic-check --global</pre></div>
+<p>Add the instance group into the backend service:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">gcloud compute backend-services add-backend nginx-backend \
+    --instance-group nginx-group \
+    --instance-group-zone us-central1-a \
+    --global</pre></div>
+<p>Create a default URL map that directs all incoming requests to all your instances:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">gcloud compute url-maps create web-map \
+    --default-service nginx-backend</pre></div>
+<p>To direct traffic to different instances based on the URL being requested, see <a href="https://cloud.google.com/compute/docs/load-balancing/http/content-based-example">content-based routing</a>.</p>
+
+<p>Create a target HTTP proxy to route requests to your URL map:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">gcloud compute target-http-proxies create http-lb-proxy \
+    --url-map web-map</pre></div>
+<p>Create  a global forwarding rule to handle and route incoming requests. A  forwarding rule sends traffic to a specific target HTTP or HTTPS proxy  depending on the IP address, IP protocol, and port specified. The global  forwarding rule does not support multiple ports.</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">gcloud compute forwarding-rules create http-content-rule \
+        --global \
+        --target-http-proxy http-lb-proxy \
+        --ports 80</pre></div>
+<p>After creating the global forwarding rule, it can take several minutes for your configuration to propagate.</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">gcloud compute forwarding-rules list</pre></div>
+<p>Take note of the http-content-rule IP_ADDRESS for the forwarding rule.</p>
+
+<p>From the browser, you should be able to connect to <code>http://IP_ADDRESS/</code>. It may take three to five minutes. If you do not connect, wait a minute then reload the browser.</p>
+
+<hr />
+
+<p><a href="https://blog.csdn.net/lihao21/article/details/53900447">负载均衡（Load Balancing）学习笔记(一)</a></p>
+
+<p><a href="https://zhuanlan.zhihu.com/p/32841479">什么是负载均衡？</a></p>
+
+      </div>
+
+      <footer>
+        
+
+
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "ffflora-github-io" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+      <p>Happy Analyzing!</p>
+    
+    
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-146589116-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+
+  </body>
+
+</html>
