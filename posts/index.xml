@@ -6,10 +6,23 @@
     <description>Recent content in Posts on Flora&#39;s</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 14 Sep 2019 22:30:48 -0700</lastBuildDate>
+    <lastBuildDate>Sun, 27 Oct 2019 01:21:49 -0700</lastBuildDate>
     
 	<atom:link href="https://ffflora.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Notes on the Paper (NLP): Skip-thought Vectors</title>
+      <link>https://ffflora.github.io/posts/skip-thoughts-paper/</link>
+      <pubDate>Sun, 27 Oct 2019 01:21:49 -0700</pubDate>
+      
+      <guid>https://ffflora.github.io/posts/skip-thoughts-paper/</guid>
+      <description>Pre-knowledge Reserve Sentence representation
+Bag of words representation
+Sen2Vec/Doc2Vec
+Some highlights of the paper Instead of using a word to predict its surrounding context, this model encode a sentence to predict the sentences around it. The model depends on having a training corpus of contiguous text.
+The model treat skip-thoughts in the framework of encoder-decoder models. That is, an encoder maps words to a sentence vector and a decoder is used to generate the surrounding sentences.</description>
+    </item>
     
     <item>
       <title>Set Up Network and HTTP Load Balancers in GCP</title>
