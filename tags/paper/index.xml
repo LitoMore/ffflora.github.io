@@ -17,7 +17,9 @@
       <pubDate>Sun, 27 Oct 2019 01:21:49 -0700</pubDate>
       
       <guid>https://ffflora.github.io/posts/skip-thoughts-paper/</guid>
-      <description>Pre-knowledge Reserve Sentence representation
+      <description>Paper
+Code
+Pre-knowledge Reserve Sentence representation
 Bag of words representation
 Sen2Vec/Doc2Vec
 Some highlights of the paper Instead of using a word to predict its surrounding context, this model encode a sentence to predict the sentences around it. The model depends on having a training corpus of contiguous text.

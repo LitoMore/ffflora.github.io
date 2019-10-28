@@ -11,14 +11,18 @@
 
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Notes on the Paper (NLP): Skip-thought Vectors"/>
-<meta name="twitter:description" content="Pre-knowledge Reserve Sentence representation
+<meta name="twitter:description" content="Paper
+Code
+Pre-knowledge Reserve Sentence representation
 Bag of words representation
 Sen2Vec/Doc2Vec
 Some highlights of the paper Instead of using a word to predict its surrounding context, this model encode a sentence to predict the sentences around it. The model depends on having a training corpus of contiguous text.
 The model treat skip-thoughts in the framework of encoder-decoder models. That is, an encoder maps words to a sentence vector and a decoder is used to generate the surrounding sentences."/>
 
     <meta property="og:title" content="Notes on the Paper (NLP): Skip-thought Vectors" />
-<meta property="og:description" content="Pre-knowledge Reserve Sentence representation
+<meta property="og:description" content="Paper
+Code
+Pre-knowledge Reserve Sentence representation
 Bag of words representation
 Sen2Vec/Doc2Vec
 Some highlights of the paper Instead of using a word to predict its surrounding context, this model encode a sentence to predict the sentences around it. The model depends on having a training corpus of contiguous text.
@@ -134,6 +138,10 @@ The model treat skip-thoughts in the framework of encoder-decoder models. That i
       <div>
         
 
+<p><a href="https://arxiv.org/abs/1506.06726">Paper</a></p>
+
+<p><a href="https://github.com/sanyam5/skip-thoughts">Code</a></p>
+
 <h1 id="pre-knowledge-reserve">Pre-knowledge Reserve</h1>
 
 <p>Sentence representation</p>
@@ -220,6 +228,14 @@ The model treat skip-thoughts in the framework of encoder-decoder models. That i
 <li>it proves that there exist a model, such that if it has been trained <strong>once</strong>, it could be uses for <strong>multiple</strong> times.</li>
 <li>The experiments&rsquo; results are in great detail, which helps for later research.</li>
 </ol>
+
+<hr />
+
+<h2 id="reproduce-the-paper-pytorch">Reproduce the Paper (Pytorch)</h2>
+
+<p>It&rsquo;s hard to reproduce this paper, since the model itself was trained by a large scale dataset, and it also requires a highly computational resources (2080 GPU in this case), which might take 2-3 months to reproduce and get the similar results.</p>
+
+<p><a href="https://github.com/sanyam5/skip-thoughts">Code here</a></p>
 
       </div>
 
