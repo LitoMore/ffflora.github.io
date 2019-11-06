@@ -6,10 +6,21 @@
     <description>Recent content in Posts on Flora&#39;s</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 27 Oct 2019 01:21:49 -0700</lastBuildDate>
+    <lastBuildDate>Tue, 05 Nov 2019 22:14:01 -0800</lastBuildDate>
     
 	<atom:link href="https://ffflora.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Notes on the paper (NLP): Character-level Convolutional Networks for Text Classification</title>
+      <link>https://ffflora.github.io/posts/character-level-convnet-for-text-classification/</link>
+      <pubDate>Tue, 05 Nov 2019 22:14:01 -0800</pubDate>
+      
+      <guid>https://ffflora.github.io/posts/character-level-convnet-for-text-classification/</guid>
+      <description>Background Knowledge  CNN One-hot encoding  Some highlights of the paper When trained on large-scale datasets, deep ConvNets do not require the knowledge of words, in addition to the conclusion from previous research that ConvNets do not require the knowledge about the syntactic or semantic structure of a language.
+Dataset size forms a dichotomy between traditional and ConvNets models: the larger datasets tend to perform better.
+ConvNets may work well for user-generated data.</description>
+    </item>
     
     <item>
       <title>Notes on the Paper (NLP): Skip-thought Vectors</title>
@@ -19,7 +30,7 @@
       <guid>https://ffflora.github.io/posts/skip-thoughts-paper/</guid>
       <description>Paper
 Code
-Pre-knowledge Reserve Sentence representation
+Background Knowledge Sentence representation
 Bag of words representation
 Sen2Vec/Doc2Vec
 Some highlights of the paper Instead of using a word to predict its surrounding context, this model encode a sentence to predict the sentences around it. The model depends on having a training corpus of contiguous text.

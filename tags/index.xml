@@ -6,7 +6,7 @@
     <description>Recent content in Tags on Flora&#39;s</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 27 Oct 2019 01:21:49 -0700</lastBuildDate>
+    <lastBuildDate>Tue, 05 Nov 2019 22:14:01 -0800</lastBuildDate>
     
 	<atom:link href="https://ffflora.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>algorithm</title>
       <link>https://ffflora.github.io/tags/algorithm/</link>
-      <pubDate>Sun, 27 Oct 2019 01:21:49 -0700</pubDate>
+      <pubDate>Tue, 05 Nov 2019 22:14:01 -0800</pubDate>
       
       <guid>https://ffflora.github.io/tags/algorithm/</guid>
       <description></description>
@@ -23,7 +23,7 @@
     <item>
       <title>NLP</title>
       <link>https://ffflora.github.io/tags/nlp/</link>
-      <pubDate>Sun, 27 Oct 2019 01:21:49 -0700</pubDate>
+      <pubDate>Tue, 05 Nov 2019 22:14:01 -0800</pubDate>
       
       <guid>https://ffflora.github.io/tags/nlp/</guid>
       <description></description>
@@ -32,7 +32,7 @@
     <item>
       <title>paper</title>
       <link>https://ffflora.github.io/tags/paper/</link>
-      <pubDate>Sun, 27 Oct 2019 01:21:49 -0700</pubDate>
+      <pubDate>Tue, 05 Nov 2019 22:14:01 -0800</pubDate>
       
       <guid>https://ffflora.github.io/tags/paper/</guid>
       <description></description>
@@ -53,24 +53,6 @@
       <pubDate>Tue, 10 Sep 2019 00:56:58 -0700</pubDate>
       
       <guid>https://ffflora.github.io/tags/%E4%B8%AD%E6%96%87/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Deep Learning</title>
-      <link>https://ffflora.github.io/tags/deep-learning/</link>
-      <pubDate>Fri, 06 Sep 2019 18:08:34 -0700</pubDate>
-      
-      <guid>https://ffflora.github.io/tags/deep-learning/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>算法</title>
-      <link>https://ffflora.github.io/tags/%E7%AE%97%E6%B3%95/</link>
-      <pubDate>Fri, 06 Sep 2019 18:08:34 -0700</pubDate>
-      
-      <guid>https://ffflora.github.io/tags/%E7%AE%97%E6%B3%95/</guid>
       <description></description>
     </item>
     

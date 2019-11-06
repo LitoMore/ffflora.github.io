@@ -6,10 +6,21 @@
     <description>Recent content in algorithm on Flora&#39;s</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 27 Oct 2019 01:21:49 -0700</lastBuildDate>
+    <lastBuildDate>Tue, 05 Nov 2019 22:14:01 -0800</lastBuildDate>
     
 	<atom:link href="https://ffflora.github.io/tags/algorithm/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Notes on the paper (NLP): Character-level Convolutional Networks for Text Classification</title>
+      <link>https://ffflora.github.io/posts/character-level-convnet-for-text-classification/</link>
+      <pubDate>Tue, 05 Nov 2019 22:14:01 -0800</pubDate>
+      
+      <guid>https://ffflora.github.io/posts/character-level-convnet-for-text-classification/</guid>
+      <description>Background Knowledge  CNN One-hot encoding  Some highlights of the paper When trained on large-scale datasets, deep ConvNets do not require the knowledge of words, in addition to the conclusion from previous research that ConvNets do not require the knowledge about the syntactic or semantic structure of a language.
+Dataset size forms a dichotomy between traditional and ConvNets models: the larger datasets tend to perform better.
+ConvNets may work well for user-generated data.</description>
+    </item>
     
     <item>
       <title>Notes on the Paper (NLP): Skip-thought Vectors</title>
@@ -19,11 +30,26 @@
       <guid>https://ffflora.github.io/posts/skip-thoughts-paper/</guid>
       <description>Paper
 Code
-Pre-knowledge Reserve Sentence representation
+Background Knowledge Sentence representation
 Bag of words representation
 Sen2Vec/Doc2Vec
 Some highlights of the paper Instead of using a word to predict its surrounding context, this model encode a sentence to predict the sentences around it. The model depends on having a training corpus of contiguous text.
 The model treat skip-thoughts in the framework of encoder-decoder models. That is, an encoder maps words to a sentence vector and a decoder is used to generate the surrounding sentences.</description>
+    </item>
+    
+    <item>
+      <title>Resnet 算法详解</title>
+      <link>https://ffflora.github.io/posts/resnet/</link>
+      <pubDate>Fri, 06 Sep 2019 18:08:34 -0700</pubDate>
+      
+      <guid>https://ffflora.github.io/posts/resnet/</guid>
+      <description>ResNet 详解 The Resnet Paper is here: Deep Residual Learning for Image Recognition
+Netscope CNN Analyzer
+网络加深性能并不一定使模型变得更强，层数更多并不总是有更准确的结果，解决方法之一是 可以构造一个性能与浅层模型相当的结构。Residual function 顾名思义就是残差，是根据论文里 Figure2, y = F(x) + x, 需要学习的是 F, F(x) = y - x, F 就是 residual.
+残差学习？残差网络？ 残差学习模块有两个分支：一是左侧的残差函数，二是右侧的对输入的恒等映射。这两个分支经过对应元素的相加之后，再经过一个非线性的变换 ReLU 激活函数，从而形成整个残差学习模块。将若干个残差模块堆叠，就成为了 残差网络。
+ResNet 可以构建很深的神经网络，比如 ResNet -50/101/152 等。
+ResNet - v2 ResNet 后期推出了更多其它的链接方式，但是实验之后发现还是没有 identity shortcut 好。
+Pre-activation Residual Module:  原先 Residual Block 是 CBR(Conv, BN, ReLU) 结构 BRC(BN, ReLU, Conv) 结构 activate 在 conv 之前。被称作为 pre-activation 结构。  ResNeXt ResNeXt 转向对神经网络拓扑设计的研究，对 block 堆叠的策略；</description>
     </item>
     
   </channel>
