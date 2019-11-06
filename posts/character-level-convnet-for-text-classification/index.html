@@ -10,15 +10,13 @@
     <meta name="keywords" content="blog,data,personal">
 
     <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Notes on the paper (NLP): Character-level Convolutional Networks for Text Classification"/>
-<meta name="twitter:description" content="Background Knowledge  CNN One-hot encoding  Some highlights of the paper When trained on large-scale datasets, deep ConvNets do not require the knowledge of words, in addition to the conclusion from previous research that ConvNets do not require the knowledge about the syntactic or semantic structure of a language.
-Dataset size forms a dichotomy between traditional and ConvNets models: the larger datasets tend to perform better.
-ConvNets may work well for user-generated data."/>
+<meta name="twitter:title" content="Notes on the paper (NLP): Character-level ConvNets for Text Classification"/>
+<meta name="twitter:description" content="Background Knowledge  CNN One-hot encoding  Some highlights of the paper When trained on large-scale datasets, deep ConvNets do not require the knowledge of words, in addition to the conclusion from previous research that ConvNets do not require the knowledge about the syntactic or semantic structure of a language. (Chinese News corpus convert to pinyin first, and then apply this model achieves only 10 something testing error.)
+Dataset size forms a dichotomy between traditional and ConvNets models: the larger datasets tend to perform better."/>
 
-    <meta property="og:title" content="Notes on the paper (NLP): Character-level Convolutional Networks for Text Classification" />
-<meta property="og:description" content="Background Knowledge  CNN One-hot encoding  Some highlights of the paper When trained on large-scale datasets, deep ConvNets do not require the knowledge of words, in addition to the conclusion from previous research that ConvNets do not require the knowledge about the syntactic or semantic structure of a language.
-Dataset size forms a dichotomy between traditional and ConvNets models: the larger datasets tend to perform better.
-ConvNets may work well for user-generated data." />
+    <meta property="og:title" content="Notes on the paper (NLP): Character-level ConvNets for Text Classification" />
+<meta property="og:description" content="Background Knowledge  CNN One-hot encoding  Some highlights of the paper When trained on large-scale datasets, deep ConvNets do not require the knowledge of words, in addition to the conclusion from previous research that ConvNets do not require the knowledge about the syntactic or semantic structure of a language. (Chinese News corpus convert to pinyin first, and then apply this model achieves only 10 something testing error.)
+Dataset size forms a dichotomy between traditional and ConvNets models: the larger datasets tend to perform better." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://ffflora.github.io/posts/character-level-convnet-for-text-classification/" />
 <meta property="article:published_time" content="2019-11-05T22:14:01-08:00" />
@@ -29,7 +27,7 @@ ConvNets may work well for user-generated data." />
       <base href="https://ffflora.github.io/posts/character-level-convnet-for-text-classification/">
     
     <title>
-  Notes on the paper (NLP): Character-level Convolutional Networks for Text Classification · Flora&#39;s
+  Notes on the paper (NLP): Character-level ConvNets for Text Classification · Flora&#39;s
 </title>
 
     
@@ -97,7 +95,7 @@ ConvNets may work well for user-generated data." />
     <article>
       <header>
         <div class="post-title">
-          <h1 class="title">Notes on the paper (NLP): Character-level Convolutional Networks for Text Classification</h1>
+          <h1 class="title">Notes on the paper (NLP): Character-level ConvNets for Text Classification</h1>
         </div>
         <div class="post-meta">
           <div class="date">
@@ -109,7 +107,7 @@ ConvNets may work well for user-generated data." />
             </span>
             <span class="reading-time">
               <i class="fas fa-clock"></i>
-              One minute read
+              2 minutes read
             </span>
           </div>
           <div class="categories">
@@ -139,7 +137,7 @@ ConvNets may work well for user-generated data." />
 
 <h2 id="some-highlights-of-the-paper">Some highlights of the paper</h2>
 
-<p>When trained on large-scale datasets, deep ConvNets do not require the knowledge of words, in addition to the conclusion from previous research that ConvNets do not require the knowledge about the syntactic or semantic structure of a language.</p>
+<p>When trained on large-scale datasets, deep ConvNets <strong>do not require the knowledge of words</strong>, in addition to the conclusion from previous research that ConvNets <strong>do not require the knowledge about the syntactic or semantic structure of a language.</strong> (Chinese News corpus convert to pinyin first, and then apply this model achieves only 10 something testing error.)</p>
 
 <p>Dataset size forms a dichotomy between traditional and ConvNets models: the larger datasets tend to perform better.</p>
 
@@ -186,6 +184,34 @@ ConvNets may work well for user-generated data." />
 </ul>
 
 <p>~ 2013 - present: deep learning: word vector + NN</p>
+
+<hr />
+
+<h3 id="model">Model</h3>
+
+<p>Input: one-hot</p>
+
+<p>k-means vs LSTM</p>
+
+<hr />
+
+<p>Q: This model is quite simple, why bother publish a paper?</p>
+
+<p>A:  It is kind of easy to reproduce, and since it has done a lot of experiments on different datasets, it could be used as the comparative results for later or new model experiments.</p>
+
+<p>Q: Disadvantages of this model?</p>
+
+<p>A:  very deep - 9 layers; much params; have better results on larger datasets; not easy to train.</p>
+
+<p>Q: Any other char-level model?</p>
+
+<p>A: char-embedding</p>
+
+<hr />
+
+<h4 id="conclusion">Conclusion</h4>
+
+<p>This paper has provided with many comparative results with different models and datasets, including BOW and Deep learning models; the biggest achievement is that it offers a new method that is doing text classification based on character-level, instead of word vector, which is one of the most popular method nowadays. What worth to mention is that this model has a best or very comparative results on different datasets.</p>
 
 <hr />
 
