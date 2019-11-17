@@ -59,10 +59,10 @@ kubectl run hello-server --image=gcr.io/google-samples/hello-app:1.0 --port 8080
     
     <item>
       <title>Resnet 算法详解</title>
-      <link>https://ffflora.github.io/posts/resnet/</link>
+      <link>https://ffflora.github.io/cn/resnet/</link>
       <pubDate>Fri, 06 Sep 2019 18:08:34 -0700</pubDate>
       
-      <guid>https://ffflora.github.io/posts/resnet/</guid>
+      <guid>https://ffflora.github.io/cn/resnet/</guid>
       <description>ResNet 详解 The Resnet Paper is here: Deep Residual Learning for Image Recognition
 Netscope CNN Analyzer
 网络加深性能并不一定使模型变得更强，层数更多并不总是有更准确的结果，解决方法之一是 可以构造一个性能与浅层模型相当的结构。Residual function 顾名思义就是残差，是根据论文里 Figure2, y = F(x) + x, 需要学习的是 F, F(x) = y - x, F 就是 residual.

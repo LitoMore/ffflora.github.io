@@ -13,10 +13,10 @@
     
     <item>
       <title>正则表达式中的 re.S 在 Python 中的使用</title>
-      <link>https://ffflora.github.io/posts/re.s-in-python/</link>
+      <link>https://ffflora.github.io/cn/re.s-in-python/</link>
       <pubDate>Tue, 10 Sep 2019 00:56:58 -0700</pubDate>
       
-      <guid>https://ffflora.github.io/posts/re.s-in-python/</guid>
+      <guid>https://ffflora.github.io/cn/re.s-in-python/</guid>
       <description>今天在使用 Python Regex 的时候遇到了一个神奇参数 re.S, 这玩意儿的学名是 dot matches all,
  Make the &#39;.&#39; special character match any character at all, including a newline; without this flag, &#39;.&#39; will match anything except a newline.
  在使用这个参数时，可以使 Regex 的操作作用在全部字符串中，包括 \n 和缩进。在没有使用此参数时， Regex 的操作会忽略 \n.

@@ -12,11 +12,11 @@
     
     
     <item>
-      <title>《痛点： 挖掘小数据满足用户需求》读书笔记</title>
-      <link>https://ffflora.github.io/posts/small-data/</link>
+      <title>《痛点：挖掘小数据满足用户需求》读书笔记</title>
+      <link>https://ffflora.github.io/cn/small-data/</link>
       <pubDate>Sat, 16 Nov 2019 22:46:13 -0800</pubDate>
       
-      <guid>https://ffflora.github.io/posts/small-data/</guid>
+      <guid>https://ffflora.github.io/cn/small-data/</guid>
       <description>◆ | 第一章 | 被刺激的欲望   他发现洛杉矶市的每个人都匆匆忙忙地买圣诞礼物，送给他们大多不了解的人
   弗雷泽写道，世界人民把西伯利亚当作一个比喻。它暗示着被拒绝、被漠视的地理条件或社会条件。西伯利亚是饭店厨房门口的桌子，是家里看不到电视比赛的座位，是一场没人出现的聚会。从地理概念上讲，西伯利亚是指从北冰洋到哈萨克斯坦山区，再到蒙古和中国边境大约800平方英里的大陆块。
 宗教警察，即美德促进与犯罪防御委员会，是由一群男性组成的。他们在城市、小镇、餐馆、咖啡厅、商店和商场里巡逻，报告和纠正所有败坏道德的行为。他们负责落实着装规范，并确保在中午、下午、傍晚和夜间祈祷期间，所有商店都关闭半个小时。
@@ -53,10 +53,10 @@
     
     <item>
       <title>正则表达式中的 re.S 在 Python 中的使用</title>
-      <link>https://ffflora.github.io/posts/re.s-in-python/</link>
+      <link>https://ffflora.github.io/cn/re.s-in-python/</link>
       <pubDate>Tue, 10 Sep 2019 00:56:58 -0700</pubDate>
       
-      <guid>https://ffflora.github.io/posts/re.s-in-python/</guid>
+      <guid>https://ffflora.github.io/cn/re.s-in-python/</guid>
       <description>今天在使用 Python Regex 的时候遇到了一个神奇参数 re.S, 这玩意儿的学名是 dot matches all,
  Make the &#39;.&#39; special character match any character at all, including a newline; without this flag, &#39;.&#39; will match anything except a newline.
  在使用这个参数时，可以使 Regex 的操作作用在全部字符串中，包括 \n 和缩进。在没有使用此参数时， Regex 的操作会忽略 \n.
@@ -66,10 +66,10 @@ import re test1 = &amp;#39;abcabc123flora789 github jiang996&amp;#39; test2 = &a
     
     <item>
       <title>Resnet 算法详解</title>
-      <link>https://ffflora.github.io/posts/resnet/</link>
+      <link>https://ffflora.github.io/cn/resnet/</link>
       <pubDate>Fri, 06 Sep 2019 18:08:34 -0700</pubDate>
       
-      <guid>https://ffflora.github.io/posts/resnet/</guid>
+      <guid>https://ffflora.github.io/cn/resnet/</guid>
       <description>ResNet 详解 The Resnet Paper is here: Deep Residual Learning for Image Recognition
 Netscope CNN Analyzer
 网络加深性能并不一定使模型变得更强，层数更多并不总是有更准确的结果，解决方法之一是 可以构造一个性能与浅层模型相当的结构。Residual function 顾名思义就是残差，是根据论文里 Figure2, y = F(x) + x, 需要学习的是 F, F(x) = y - x, F 就是 residual.
