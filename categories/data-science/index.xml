@@ -6,10 +6,21 @@
     <description>Recent content in Data Science on Flora&#39;s</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 05 Nov 2019 22:14:01 -0800</lastBuildDate>
+    <lastBuildDate>Wed, 20 Nov 2019 00:09:34 -0800</lastBuildDate>
     
 	<atom:link href="https://ffflora.github.io/categories/data-science/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Notes on Recommendation System</title>
+      <link>https://ffflora.github.io/posts/recommendation-sys/</link>
+      <pubDate>Wed, 20 Nov 2019 00:09:34 -0800</pubDate>
+      
+      <guid>https://ffflora.github.io/posts/recommendation-sys/</guid>
+      <description>What is a Recommendation System? Recommendation system helps people to find things, when the process of finding the information you need might be a little bit challenging, since there&amp;rsquo;s too many choices.
+There are two types of recommendation engine:
+ most popular (Non personalized: normally top-n algorithm) by features among all users -&amp;gt; this needs to classify the users into various segments. (personalized)  Techniques Non-personalized:  Popularity Frequency count Mean Rating Association Rule Mining  Apriori algorithm: beers and diapers   Pros: no need to analyze the personalized data</description>
+    </item>
     
     <item>
       <title>Notes on the paper (NLP): Character-level ConvNets for Text Classification</title>

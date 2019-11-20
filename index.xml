@@ -6,10 +6,21 @@
     <description>Recent content on Flora&#39;s</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 19 Nov 2019 14:22:34 -0800</lastBuildDate>
+    <lastBuildDate>Wed, 20 Nov 2019 00:09:34 -0800</lastBuildDate>
     
 	<atom:link href="https://ffflora.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Notes on Recommendation System</title>
+      <link>https://ffflora.github.io/posts/recommendation-sys/</link>
+      <pubDate>Wed, 20 Nov 2019 00:09:34 -0800</pubDate>
+      
+      <guid>https://ffflora.github.io/posts/recommendation-sys/</guid>
+      <description>What is a Recommendation System? Recommendation system helps people to find things, when the process of finding the information you need might be a little bit challenging, since there&amp;rsquo;s too many choices.
+There are two types of recommendation engine:
+ most popular (Non personalized: normally top-n algorithm) by features among all users -&amp;gt; this needs to classify the users into various segments. (personalized)  Techniques Non-personalized:  Popularity Frequency count Mean Rating Association Rule Mining  Apriori algorithm: beers and diapers   Pros: no need to analyze the personalized data</description>
+    </item>
     
     <item>
       <title>读书笔记：《走进内容推荐时代》</title>
@@ -250,17 +261,6 @@ Say if the files&amp;rsquo; directory in the Kaggle kernel looks like this:
 competitive-data-science-predict-future-sales sales_train.csv.gz sales_train.csv When I try to list all the files in the directory, I realize that there&amp;rsquo;s no need to unzip the .gz file in order to get the .csv files, since
 import os data_dir = &amp;#39;/kaggle/input/competitive-data-science-predict-future-sales&amp;#39; os.listdir(data_dir) the output is:
 [&amp;#39;test.csv&amp;#39;, &amp;#39;item_categories.csv&amp;#39;, &amp;#39;sales_train.csv&amp;#39;, &amp;#39;sample_submission.csv&amp;#39;, &amp;#39;items.csv&amp;#39;, &amp;#39;shops.csv&amp;#39;] Thus in order to use the .</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://ffflora.github.io/posts/recommendation-system/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://ffflora.github.io/posts/recommendation-system/</guid>
-      <description>What is a Recommendation System? Recommendation system helps people to find things, when the process of finding the information you need might be a little bit challenging, since there&amp;rsquo;s too many choices.
-There are two types of recommendation engine:
- most popular (Non personalized: normally top-n algorithm) by features among all users -&amp;gt; this needs to classify the users into various segments. (personalized)  Techniques Non-personalized:  Popularity Frequency count Mean Rating Association Rule Mining  Apriori algorithm: beers and diapers   Pros: no need to analyze the personalized data</description>
     </item>
     
     <item>
