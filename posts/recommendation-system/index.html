@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Flora Jiang">
+    <meta name="description" content="Flora&#39;s personal website">
+    <meta name="keywords" content="blog,data,personal">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="What is a Recommendation System? Recommendation system helps people to find things, when the process of finding the information you need might be a little bit challenging, since there&rsquo;s too many choices.
+There are two types of recommendation engine:
+ most popular (Non personalized: normally top-n algorithm) by features among all users -&gt; this needs to classify the users into various segments. (personalized)  Techniques Non-personalized:  Popularity Frequency count Mean Rating Association Rule Mining  Apriori algorithm: beers and diapers   Pros: no need to analyze the personalized data"/>
+
+    <meta property="og:title" content="" />
+<meta property="og:description" content="What is a Recommendation System? Recommendation system helps people to find things, when the process of finding the information you need might be a little bit challenging, since there&rsquo;s too many choices.
+There are two types of recommendation engine:
+ most popular (Non personalized: normally top-n algorithm) by features among all users -&gt; this needs to classify the users into various segments. (personalized)  Techniques Non-personalized:  Popularity Frequency count Mean Rating Association Rule Mining  Apriori algorithm: beers and diapers   Pros: no need to analyze the personalized data" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ffflora.github.io/posts/recommendation-system/" />
+
+
+
+    
+      <base href="https://ffflora.github.io/posts/recommendation-system/">
+    
+    <title>
+   · Flora&#39;s
+</title>
+
+    
+      <link rel="canonical" href="https://ffflora.github.io/posts/recommendation-system/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://ffflora.github.io/css/coder.min.4c6fcdf76ee3d92d0bdf8069e772433840f81d68ed1e743b0d7a09ca0cd4421d.css" integrity="sha256-TG/N927j2S0L34Bp53JDOED4HWjtHnQ7DXoJygzUQh0=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+
+    
+    
+    <link rel="icon" type="image/png" href="https://ffflora.github.io/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://ffflora.github.io/img/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.57.2" />
+  </head>
+
+  <body class=" ">
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="https://ffflora.github.io/">
+      Flora&#39;s
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://ffflora.github.io/posts/">Blog</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://ffflora.github.io/resume.pdf">Resume</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://ffflora.github.io/cn/">CHN</a>
+          </li>
+        
+      
+      
+    </ul>
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title"></h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fas fa-calendar"></i>
+              <time datetime='0001-01-01T00:00:00Z'>
+                January 1, 0001
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fas fa-clock"></i>
+              3 minutes read
+            </span>
+          </div>
+          
+          
+        </div>
+      </header>
+
+      <div>
+        
+
+<h1 id="what-is-a-recommendation-system">What is a Recommendation System?</h1>
+
+<p>Recommendation system helps people to find things, when the process of finding the information you need might be a little bit challenging, since there&rsquo;s too many choices.</p>
+
+<p>There are two types of recommendation engine:</p>
+
+<ul>
+<li>most popular (<strong>Non personalized: normally top-n algorithm</strong>)</li>
+<li>by features among all users -&gt; this needs to classify the users into various segments. (<strong>personalized</strong>)</li>
+</ul>
+
+<h1 id="techniques">Techniques</h1>
+
+<h3 id="non-personalized">Non-personalized:</h3>
+
+<ul>
+<li>Popularity</li>
+<li>Frequency count</li>
+<li>Mean Rating</li>
+<li>Association Rule Mining
+
+<ul>
+<li>Apriori algorithm: beers and diapers</li>
+</ul></li>
+</ul>
+
+<p>Pros: no need to analyze the personalized data</p>
+
+<h2 id="personalized-popular-model-method">Personalized: Popular Model Method</h2>
+
+<ol>
+<li>Content Based</li>
+<li>Collaborative Filtering</li>
+</ol>
+
+<h3 id="u-content-based-filtering-u"><u>Content Based Filtering</u></h3>
+
+<p>To recommend based on the description of the item and  what this person likes in the past (user&rsquo;s preference).</p>
+
+<p>Some keywords:</p>
+
+<p><strong>profile vector</strong>: contains the past behavior of the user.</p>
+
+<p><strong>item vector</strong>: where all the info related to the movies.</p>
+
+<p>TD-IDF, Labels, Attributes, Tags</p>
+
+<p><em>interesting points to think of: cultural-wise, language, and etc.</em></p>
+
+<h4 id="advantages">Advantages</h4>
+
+<ul>
+<li>No need for data on other users and no cold start and sparsity</li>
+<li>Able to recommend users with unique taste.</li>
+<li>Able to recommend new and unpopular items</li>
+<li>Can provide explanation for recommendation</li>
+</ul>
+
+<h4 id="disadvantage"><strong>Disadvantage</strong></h4>
+
+<ul>
+<li><p>Requires <strong><u>domain knowledge</u></strong>.</p></li>
+
+<li><p>well-structured attributes that align with preferences</p></li>
+
+<li><p>the model has limited ability to expand on the user&rsquo;s existing interests.</p></li>
+</ul>
+
+<h3 id="u-collaborative-filtering-u"><u>Collaborative filtering</u></h3>
+
+<p>Based on the assumption that people who agreed in the past will agree in the future, and that they will like similar kinds of items as they liked in the past.</p>
+
+<h4 id="disadvantages">Disadvantages:</h4>
+
+<ul>
+<li>cannot handle fresh items, cold start problem.</li>
+<li>User-based:
+
+<ul>
+<li>use past agreement to predict future aggrement</li>
+<li>taste has changed</li>
+<li>seasonal,&hellip;</li>
+</ul></li>
+<li>Item-based:
+
+<ul>
+<li>item_item relationships need to be stable</li>
+<li>stable user preferences</li>
+<li>could have special cases that are difficult (calendars, short-lives books, &hellip;)</li>
+<li>main limitation, lower serendipity</li>
+</ul></li>
+<li>Matrix Factorization
+
+<ul>
+<li>cost is high</li>
+<li>hard to explain</li>
+</ul></li>
+</ul>
+
+<h4 id="two-way">Two way:</h4>
+
+<ul>
+<li>Neighborhood-based</li>
+<li>Latent Factor Model</li>
+</ul>
+
+<h4 id="u-nearest-neighbor-cf-u"><u>Nearest Neighbor CF</u></h4>
+
+<p>to predict user (say, John) &rsquo;s preference for the movie &lsquo;iron man&rsquo;</p>
+
+<p>Calculate similarity.</p>
+
+<h5 id="user-based-collaborative-filtering"><strong><em>User-Based Collaborative Filtering:</em></strong></h5>
+
+<ul>
+<li>Use user-item rating matrix</li>
+<li>Use user-user correlations</li>
+<li>Find highly correlation users</li>
+<li>Recommend items prefered by users</li>
+</ul>
+
+<h5 id="item-based-collaborative-filtering"><strong><em>Item-Based Collaborative Filtering:</em></strong></h5>
+
+<ul>
+<li>Use user-item rating matrix</li>
+<li>Use item-item correlations</li>
+<li>Find highly correlation users</li>
+<li>Recommend items with highest correlation</li>
+</ul>
+
+<h4 id="u-latend-factors-u"><u>Latend Factors</u></h4>
+
+<p><strong>matrix factorization</strong> algorithms work by decomposing the user-item interaction matrix into the product of two lower dimentional rectangular matrices.</p>
+
+<h3 id="u-deep-learning-u"><u>Deep Learning</u></h3>
+
+<hr />
+
+<h1 id="design">Design</h1>
+
+<p>Start from senarios.</p>
+
+<ul>
+<li><p>Collecting Opinion and Experience Data</p></li>
+
+<li><p>Finding the Relevant Data for a purpose</p></li>
+
+<li><p>Computing the recommendations</p></li>
+
+<li><p>Presnrting the data in a useful way</p></li>
+</ul>
+
+<hr />
+
+<ul>
+<li>Users : who are the users, what are their goals?</li>
+<li>Data: What are the characteristics of the data on which recommendations are based?</li>
+<li>Product: What is the overall application the recommender is part of?</li>
+</ul>
+
+<h3 id="engineer-side">Engineer side:</h3>
+
+<p>Data collection -&gt; ETL -&gt; Feature Engineering -&gt; Recommender model -&gt; Result -&gt; Service</p>
+
+<h4 id="data-collection">Data Collection:</h4>
+
+<ul>
+<li>What we want to know?</li>
+<li>What we can observe?
+
+<ul>
+<li>ratings</li>
+<li>reliable?</li>
+<li>preference change?</li>
+<li>means?</li>
+<li>Actions</li>
+<li>click?(not interest? )</li>
+<li>purchase?</li>
+</ul></li>
+</ul>
+
+<hr />
+
+<p>Reference:</p>
+
+<p><a href="https://www.youtube.com/watch?v=lJLkcknhbiI">Data Application Lab - Recommendation System</a></p>
+
+      </div>
+
+      <footer>
+        
+
+
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "ffflora-github-io" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+      <p>Happy Analyzing!</p>
+    
+    
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-146589116-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+
+  </body>
+
+</html>

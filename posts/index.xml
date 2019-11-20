@@ -94,5 +94,16 @@ import os data_dir = &amp;#39;/kaggle/input/competitive-data-science-predict-fut
 [&amp;#39;test.csv&amp;#39;, &amp;#39;item_categories.csv&amp;#39;, &amp;#39;sales_train.csv&amp;#39;, &amp;#39;sample_submission.csv&amp;#39;, &amp;#39;items.csv&amp;#39;, &amp;#39;shops.csv&amp;#39;] Thus in order to use the .</description>
     </item>
     
+    <item>
+      <title></title>
+      <link>https://ffflora.github.io/posts/recommendation-system/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ffflora.github.io/posts/recommendation-system/</guid>
+      <description>What is a Recommendation System? Recommendation system helps people to find things, when the process of finding the information you need might be a little bit challenging, since there&amp;rsquo;s too many choices.
+There are two types of recommendation engine:
+ most popular (Non personalized: normally top-n algorithm) by features among all users -&amp;gt; this needs to classify the users into various segments. (personalized)  Techniques Non-personalized:  Popularity Frequency count Mean Rating Association Rule Mining  Apriori algorithm: beers and diapers   Pros: no need to analyze the personalized data</description>
+    </item>
+    
   </channel>
 </rss>
