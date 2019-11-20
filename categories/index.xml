@@ -6,10 +6,19 @@
     <description>Recent content in Categories on Flora&#39;s</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 16 Nov 2019 22:46:13 -0800</lastBuildDate>
+    <lastBuildDate>Tue, 19 Nov 2019 14:22:34 -0800</lastBuildDate>
     
 	<atom:link href="https://ffflora.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>中文</title>
+      <link>https://ffflora.github.io/categories/%E4%B8%AD%E6%96%87/</link>
+      <pubDate>Tue, 19 Nov 2019 14:22:34 -0800</pubDate>
+      
+      <guid>https://ffflora.github.io/categories/%E4%B8%AD%E6%96%87/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>读书笔记</title>
