@@ -6,10 +6,21 @@
     <description>Recent content in Posts on Flora&#39;s</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 20 Nov 2019 00:09:34 -0800</lastBuildDate>
+    <lastBuildDate>Mon, 02 Dec 2019 23:08:11 -0800</lastBuildDate>
     
 	<atom:link href="https://ffflora.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Flask(1): Introduction and Setup the Environment</title>
+      <link>https://ffflora.github.io/posts/flask1/</link>
+      <pubDate>Mon, 02 Dec 2019 23:08:11 -0800</pubDate>
+      
+      <guid>https://ffflora.github.io/posts/flask1/</guid>
+      <description>How to Run Flask by Command After installing/updating the flask package with $conda$, one could use the following command to run the scripts:
+$ flask run # This command runs the app.py or wsgi.py under the current dir automatically. And user could find the server running on $http://localhost:5000$, the port by default is 5000.
+If you are going to run the scripts other than the two filenames mentioned above, you need to specify the environment variable FLASK_APP by:</description>
+    </item>
     
     <item>
       <title>Notes on Recommendation System</title>

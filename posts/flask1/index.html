@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Flora Jiang">
+    <meta name="description" content="Flora&#39;s personal website">
+    <meta name="keywords" content="blog,data,personal">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Flask(1): Introduction and Setup the Environment"/>
+<meta name="twitter:description" content="My Flask learning notes."/>
+
+    <meta property="og:title" content="Flask(1): Introduction and Setup the Environment" />
+<meta property="og:description" content="My Flask learning notes." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ffflora.github.io/posts/flask1/" />
+<meta property="article:published_time" content="2019-12-02T23:08:11-08:00" />
+<meta property="article:modified_time" content="2019-12-02T23:08:11-08:00" />
+
+
+    
+      <base href="https://ffflora.github.io/posts/flask1/">
+    
+    <title>
+  Flask(1): Introduction and Setup the Environment · Flora&#39;s
+</title>
+
+    
+      <link rel="canonical" href="https://ffflora.github.io/posts/flask1/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://ffflora.github.io/css/coder.min.4c6fcdf76ee3d92d0bdf8069e772433840f81d68ed1e743b0d7a09ca0cd4421d.css" integrity="sha256-TG/N927j2S0L34Bp53JDOED4HWjtHnQ7DXoJygzUQh0=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+
+    
+    
+    <link rel="icon" type="image/png" href="https://ffflora.github.io/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://ffflora.github.io/img/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.57.2" />
+  </head>
+
+  <body class=" ">
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="https://ffflora.github.io/">
+      Flora&#39;s
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://ffflora.github.io/posts/">Blog</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://ffflora.github.io/resume.pdf">Resume</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://ffflora.github.io/cn/">CHN</a>
+          </li>
+        
+      
+      
+    </ul>
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">Flask(1): Introduction and Setup the Environment</h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fas fa-calendar"></i>
+              <time datetime='2019-12-02T23:08:11-08:00'>
+                December 2, 2019
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fas fa-clock"></i>
+              3 minutes read
+            </span>
+          </div>
+          <div class="categories">
+  <i class="fas fa-folder"></i>
+    <a href="https://ffflora.github.io/categories/backend/">Backend</a></div>
+
+          <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="https://ffflora.github.io/tags/notes/">notes</a></div>
+
+        </div>
+      </header>
+
+      <div>
+        
+
+<h3 id="how-to-run-flask-by-command">How to Run Flask by Command</h3>
+
+<p>After installing/updating the flask package with $conda$, one could use the following command to run the scripts:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ flask run 
+<span style="font-style:italic"># This command runs the app.py or wsgi.py under the current dir automatically.</span></code></pre></div>
+<p>And user could find the server running on $<a href="http://localhost:5000$">http://localhost:5000$</a>, the port by default is 5000.</p>
+
+<p>If you are going to run the scripts other than the two filenames mentioned above, you need to specify the environment variable <code>FLASK_APP</code> by:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ set FLASK_APP = hello</code></pre></div>
+<p>But this is not a smart way to manage all the env-variables.</p>
+
+<p>A better way of doing that is to use the <code>python-dotenv</code> package, then when using <code>flask run</code> or other commands, it will automatically load the environment variables from <code>.flaskenv</code> and <code>.env</code> files.</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ pipenv install python-dotenv
+<span style="font-style:italic"># this would be installed under the project folder</span>
+$ pipenv shell 
+<span style="font-style:italic"># this command used to activate the virtualenv.</span></code></pre></div>
+<p>The priority of Flask to load the environment variables is:</p>
+
+<p>hand set &gt; <code>.env</code> &gt; <code>.flaskenv</code></p>
+
+<p><code>.env</code> and <code>.flaskenv</code> files needed to be created under the project&rsquo;s root address.</p>
+
+<p><code>.env</code> is used to contain the sensitive environment variables, like username and passwords, so this file cannot be upload the GitHub.</p>
+
+<p><code>.flaskenv</code> contains information all the public env-variables that related to the flask, such as <code>FLASK_APP</code>.</p>
+
+<hr />
+
+<h3 id="set-the-production-environment">Set the Production Environment</h3>
+
+<p>When we are in the development, we could set the production environment to <code>development</code>, which would enable all the development features.</p>
+
+<p>Now add the <code>FLASK_ENV</code> to <code>.flaskenv</code> file:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">FLASK_ENV=development</pre></div>
+<p>or just type the following in the terminal:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ set FLASK_ENV = development</code></pre></div>
+<p>And this command will activate the <strong>debug mode</strong>, which triggers the <strong>Werksrug Debugger</strong>.</p>
+
+<hr />
+
+<h3 id="python-shell">Python Shell</h3>
+
+<p>run the command<code>flask shell</code> to start flask shell, and could exit by the commands <code>exit()</code> or <code>quit()</code> or <code>Ctrl+Z+Enter</code>.</p>
+
+<hr />
+
+<h3 id="config">Config</h3>
+
+<p>Mostly, user can access the api  <code>app.config</code> to setup and acquire the config settings, and it usually is a dictionary file.</p>
+
+<p>There are many ways to load the settings:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">app.config[<span style="font-style:italic">&#39;ADMIN_NAME&#39;</span>]=<span style="font-style:italic">&#39;Flora&#39;</span>
+<span style="font-style:italic"># tips: the settings must in capital letters, otherwise they won&#39;t be read.</span></code></pre></div><div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">app.config.update(
+	TESTING = True,
+	SECRET_KEY = <span style="font-style:italic">&#39;....&#39;</span>)</code></pre></div>
+<p>Or config info could also be saved in JSON or python scripts format.</p>
+
+<hr />
+
+<h3 id="url-and-endpoint">URL and Endpoint</h3>
+
+<p>Flask provides <code>url_for()</code> function to get the urls. When the URL rules that defined in the routes are modified, the function would always return the correct URL.</p>
+
+<p>The first param for <code>url_for()</code> is the endpoint, which is used to mark the view function and its corresponding URL rules. The default value is the name of the view function.</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">@app.route(<span style="font-style:italic">&#39;/&#39;</span>)
+<span style="font-weight:bold">def</span> index():
+	<span style="font-weight:bold">return</span> <span style="font-style:italic">&#39;Hello Flora!&#39;</span>	</code></pre></div>
+<p>The view function is <code>index</code>, so when we do <code>url_for('index')</code> here, we would get the URL: <code>'/'</code>.</p>
+
+<hr />
+
+<h3 id="flask-command">Flask Command</h3>
+
+<p>We could also self define some flask command:</p>
+
+<p>declare a function  +  add <code>app.cli.command()</code> =&gt; then we get a flask command.</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">@app.cli.command()
+<span style="font-weight:bold">def</span> hello():
+	click.echo(<span style="font-style:italic">&#39;Hello, human!&#39;</span>)</code></pre></div>
+<p>and this command could be run by:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ flask hello</code></pre></div>
+      </div>
+
+      <footer>
+        
+
+
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "ffflora-github-io" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+      <p>Happy Analyzing!</p>
+    
+    
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-146589116-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+
+  </body>
+
+</html>
