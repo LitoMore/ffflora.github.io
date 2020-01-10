@@ -6,10 +6,25 @@
     <description>Recent content on Flora&#39;s</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 02 Dec 2019 23:08:11 -0800</lastBuildDate>
+    <lastBuildDate>Thu, 09 Jan 2020 22:02:18 -0800</lastBuildDate>
     
 	<atom:link href="https://ffflora.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Business Analyst ABCs and Interview Preparation</title>
+      <link>https://ffflora.github.io/posts/ba/</link>
+      <pubDate>Thu, 09 Jan 2020 22:02:18 -0800</pubDate>
+      
+      <guid>https://ffflora.github.io/posts/ba/</guid>
+      <description>Data is increasingly being considered an important asset within organization.
+BA Oversee every process in typical E-commerce to look out for potential issues, problems and potential for optimization to boost the business performance.
+ Under CFO or COO
+ BI team
+ Support various department:
+  warehouse, UX design, marketing, operation, international
+DA  Under CTO DA/DS team Support marketing/strategy/BI and work with technology closely.  Important Metrics and KPIs  Traffic: - Website  Conversion Rate</description>
+    </item>
     
     <item>
       <title>Flask(1): Introduction and Setup the Environment</title>
