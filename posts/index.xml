@@ -27,6 +27,16 @@ DA  Under CTO DA/DS team Support marketing/strategy/BI and work with technology 
     </item>
     
     <item>
+      <title>MongoDB Useful Commands</title>
+      <link>https://ffflora.github.io/posts/mongodb/</link>
+      <pubDate>Thu, 09 Jan 2020 21:52:20 -0800</pubDate>
+      
+      <guid>https://ffflora.github.io/posts/mongodb/</guid>
+      <description>SQL vs MongoDB    SQL MongoDB     Table Collection   Row Document   Col Field   Primary Key ObjectId   Index Index   Embedded Table Embedded Table   Array Array    Common command lines
+use dtbase #use some specific database db.collection.updateOne({tags:&amp;#39;abc&amp;#39;},{$set:{name:&amp;#39;flora&amp;#39;}}) db.collection.updatemMany({tags:&amp;#39;abc&amp;#39;},{$set:{name:&amp;#39;flora&amp;#39;}}) db.collection.insertOne({&amp;#39;name&amp;#39;:&amp;#39;Flora&amp;#39;,&amp;#39;age&amp;#39;:&amp;#39;17&amp;#39;}) db.getCollection(&amp;#39;collection_name&amp;#39;).find({}) Use pymongo to connect with remote mongoDB def connectDB(): client = pymongo.MongoClient(&amp;#39;mongodb://username:password@remote_ip_address:port&amp;#39;) db = client[&amp;#39;database&amp;#39;] def get_collection(collection): &amp;#34;&amp;#34;&amp;#34; params: --- collection: string, is the db collection name of the data that wanted to get from current database.</description>
+    </item>
+    
+    <item>
       <title>Flask(1): Introduction and Setup the Environment</title>
       <link>https://ffflora.github.io/posts/flask1/</link>
       <pubDate>Mon, 02 Dec 2019 23:08:11 -0800</pubDate>
