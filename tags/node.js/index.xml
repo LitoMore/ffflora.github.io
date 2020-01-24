@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Node.js on Flora&#39;s</title>
+    <link>https://ffflora.github.io/tags/node.js/</link>
+    <description>Recent content in Node.js on Flora&#39;s</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 24 Jan 2020 15:49:23 -0800</lastBuildDate>
+    
+	<atom:link href="https://ffflora.github.io/tags/node.js/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Node.js Error Message Resolved</title>
+      <link>https://ffflora.github.io/posts/node-error/</link>
+      <pubDate>Fri, 24 Jan 2020 15:49:23 -0800</pubDate>
+      
+      <guid>https://ffflora.github.io/posts/node-error/</guid>
+      <description>So I had encountered these Error Messages when running a project:
+npm ERR! code ELIFECYCLE npm ERR! errno 1 npm ERR! grpc@1.10.1 install: `node-pre-gyp install --fallback-to-build --library=static_library` npm ERR! Exit status 1 npm ERR! npm ERR! Failed at the grpc@1.10.1 install script. npm ERR! This is probably not a problem with npm. There is likely additional logging output above. npm ERR! A complete log of this run can be found in: npm ERR!</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -6,10 +6,31 @@
     <description>Recent content in Posts on Flora&#39;s</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 09 Jan 2020 22:02:18 -0800</lastBuildDate>
+    <lastBuildDate>Fri, 24 Jan 2020 15:49:23 -0800</lastBuildDate>
     
 	<atom:link href="https://ffflora.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Node.js Error Message Resolved</title>
+      <link>https://ffflora.github.io/posts/node-error/</link>
+      <pubDate>Fri, 24 Jan 2020 15:49:23 -0800</pubDate>
+      
+      <guid>https://ffflora.github.io/posts/node-error/</guid>
+      <description>So I had encountered these Error Messages when running a project:
+npm ERR! code ELIFECYCLE npm ERR! errno 1 npm ERR! grpc@1.10.1 install: `node-pre-gyp install --fallback-to-build --library=static_library` npm ERR! Exit status 1 npm ERR! npm ERR! Failed at the grpc@1.10.1 install script. npm ERR! This is probably not a problem with npm. There is likely additional logging output above. npm ERR! A complete log of this run can be found in: npm ERR!</description>
+    </item>
+    
+    <item>
+      <title>Conda Install Error Message Resolved</title>
+      <link>https://ffflora.github.io/posts/conda-removeerror/</link>
+      <pubDate>Thu, 16 Jan 2020 22:42:06 -0800</pubDate>
+      
+      <guid>https://ffflora.github.io/posts/conda-removeerror/</guid>
+      <description>I encountered with the error message today when I use conda install xxx :
+RemoveError: &amp;#39;xxxxxx&amp;#39; is a dependency of conda and cannot be removed from conda&amp;#39;s operating environment. Solved by :
+conda clean -all conda update --all</description>
+    </item>
     
     <item>
       <title>Business Analyst ABCs and Interview Preparation</title>

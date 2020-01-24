@@ -3,6 +3,51 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://ffflora.github.io/categories/</loc>
+    <lastmod>2020-01-24T15:49:23-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ffflora.github.io/categories/debug/</loc>
+    <lastmod>2020-01-24T15:49:23-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ffflora.github.io/</loc>
+    <lastmod>2020-01-24T15:49:23-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ffflora.github.io/tags/node.js/</loc>
+    <lastmod>2020-01-24T15:49:23-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ffflora.github.io/posts/node-error/</loc>
+    <lastmod>2020-01-24T15:49:23-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ffflora.github.io/posts/</loc>
+    <lastmod>2020-01-24T15:49:23-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ffflora.github.io/tags/</loc>
+    <lastmod>2020-01-24T15:49:23-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ffflora.github.io/tags/conda/</loc>
+    <lastmod>2020-01-16T22:42:06-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ffflora.github.io/posts/conda-removeerror/</loc>
+    <lastmod>2020-01-16T22:42:06-08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://ffflora.github.io/posts/ba/</loc>
     <lastmod>2020-01-09T22:02:18-08:00</lastmod>
   </url>
@@ -13,22 +58,7 @@
   </url>
   
   <url>
-    <loc>https://ffflora.github.io/categories/</loc>
-    <lastmod>2020-01-09T22:02:18-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ffflora.github.io/</loc>
-    <lastmod>2020-01-09T22:02:18-08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://ffflora.github.io/categories/interview/</loc>
-    <lastmod>2020-01-09T22:02:18-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ffflora.github.io/posts/</loc>
     <lastmod>2020-01-09T22:02:18-08:00</lastmod>
   </url>
   
@@ -44,11 +74,6 @@
   
   <url>
     <loc>https://ffflora.github.io/tags/notes/</loc>
-    <lastmod>2020-01-09T21:52:20-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ffflora.github.io/tags/</loc>
     <lastmod>2020-01-09T21:52:20-08:00</lastmod>
   </url>
   
