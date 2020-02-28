@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Flora Jiang">
+    <meta name="description" content="Flora&#39;s personal website">
+    <meta name="keywords" content="blog,data,personal">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Notes on the paper(NLP): Efficient Estimation of Word Representations in Vector Space"/>
+<meta name="twitter:description" content="Background Knowledge Machine Learning
+Calculus
+Programming Skills: C&#43;&#43;, PyTorch
+Language Model: sentence = {x1,x2,....,xn}
+use frequency of the corpus instead of the probabilities:
+p(xi) = count(xi)/N
+p(xi-1,xi) = count(xi-1,xi)/N
+Use conditional probability p(xi|xi-1):
+p(xi|xi-1) = count(xi-1,xi)/count(xi)
+Markov chain k-gram model
+Sigmod Gradient Descent Softmax Distributed Representation The origin of NLP deep learning: features.
+One-hot representation Easy to represent, but the problems are
+ More words, higher the dimension. There are no connections between the words."/>
+
+    <meta property="og:title" content="Notes on the paper(NLP): Efficient Estimation of Word Representations in Vector Space" />
+<meta property="og:description" content="Background Knowledge Machine Learning
+Calculus
+Programming Skills: C&#43;&#43;, PyTorch
+Language Model: sentence = {x1,x2,....,xn}
+use frequency of the corpus instead of the probabilities:
+p(xi) = count(xi)/N
+p(xi-1,xi) = count(xi-1,xi)/N
+Use conditional probability p(xi|xi-1):
+p(xi|xi-1) = count(xi-1,xi)/count(xi)
+Markov chain k-gram model
+Sigmod Gradient Descent Softmax Distributed Representation The origin of NLP deep learning: features.
+One-hot representation Easy to represent, but the problems are
+ More words, higher the dimension. There are no connections between the words." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ffflora.github.io/posts/efficient-estimation/" />
+<meta property="article:published_time" content="2020-02-28T10:25:43-08:00" />
+<meta property="article:modified_time" content="2020-02-28T10:25:43-08:00" />
+
+
+    
+      <base href="https://ffflora.github.io/posts/efficient-estimation/">
+    
+    <title>
+  Notes on the paper(NLP): Efficient Estimation of Word Representations in Vector Space · Flora&#39;s
+</title>
+
+    
+      <link rel="canonical" href="https://ffflora.github.io/posts/efficient-estimation/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://ffflora.github.io/css/coder.min.4c6fcdf76ee3d92d0bdf8069e772433840f81d68ed1e743b0d7a09ca0cd4421d.css" integrity="sha256-TG/N927j2S0L34Bp53JDOED4HWjtHnQ7DXoJygzUQh0=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+
+    
+    
+    <link rel="icon" type="image/png" href="https://ffflora.github.io/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://ffflora.github.io/img/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.57.2" />
+  </head>
+
+  <body class=" ">
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="https://ffflora.github.io/">
+      Flora&#39;s
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://ffflora.github.io/posts/">Blog</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://ffflora.github.io/resume.pdf">Resume</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://ffflora.github.io/cn/">CHN</a>
+          </li>
+        
+      
+      
+    </ul>
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">Notes on the paper(NLP): Efficient Estimation of Word Representations in Vector Space</h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fas fa-calendar"></i>
+              <time datetime='2020-02-28T10:25:43-08:00'>
+                February 28, 2020
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fas fa-clock"></i>
+              3 minutes read
+            </span>
+          </div>
+          <div class="categories">
+  <i class="fas fa-folder"></i>
+    <a href="https://ffflora.github.io/categories/data-science/">Data Science</a></div>
+
+          <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="https://ffflora.github.io/tags/paper/">paper</a>
+      <span class="separator">•</span>
+    <a href="https://ffflora.github.io/tags/nlp/">NLP</a>
+      <span class="separator">•</span>
+    <a href="https://ffflora.github.io/tags/algorithm/">algorithm</a></div>
+
+        </div>
+      </header>
+
+      <div>
+        
+
+<h1 id="background-knowledge">Background Knowledge</h1>
+
+<p>Machine Learning</p>
+
+<p>Calculus</p>
+
+<p>Programming Skills: C++, PyTorch</p>
+
+<h4 id="language-model">Language Model:</h4>
+
+<p><code>sentence = {x1,x2,....,xn}</code></p>
+
+<p>use frequency of the corpus instead of the probabilities:</p>
+
+<p><code>p(xi) = count(xi)/N</code></p>
+
+<p><code>p(xi-1,xi) = count(xi-1,xi)/N</code></p>
+
+<p>Use conditional probability <code>p(xi|xi-1)</code>:</p>
+
+<p><code>p(xi|xi-1) = count(xi-1,xi)/count(xi)</code></p>
+
+<p>Markov chain k-gram model</p>
+
+<h4 id="sigmod">Sigmod</h4>
+
+<h4 id="gradient-descent">Gradient Descent</h4>
+
+<h4 id="softmax">Softmax</h4>
+
+<hr />
+
+<h1 id="distributed-representation">Distributed Representation</h1>
+
+<p>The origin of NLP deep learning: features.</p>
+
+<h4 id="one-hot-representation">One-hot representation</h4>
+
+<p>Easy to represent, but the problems are</p>
+
+<ul>
+<li>More words, higher the dimension.</li>
+<li>There are no connections between the words.</li>
+</ul>
+
+<h4 id="distributed-representation-1">Distributed representation</h4>
+
+<p>Use word embedding,  which usually doesn&rsquo;t have a high dimension, therefore could represent the relationship/connections between the words, easy to compute the similarity.</p>
+
+<hr />
+
+<h2 id="word2vec">word2vec</h2>
+
+<p>word2vec is a way to train the</p>
+
+<ul>
+<li>unsupervised learning, no need to annotation</li>
+<li>压缩 self-encoding, to reduce the dimension itself</li>
+<li>contextual semantics (结合上下文语义)</li>
+</ul>
+
+<h3 id="word2vec-evaluation">word2vec evaluation</h3>
+
+<h4 id="intrinsic-evaluation">Intrinsic Evaluation</h4>
+
+<p>Compare the similarity between the words:</p>
+
+<p><code>sim(w1,w2) = cos(wvec1,wvec2)</code></p>
+
+<h4 id="analogy-词类比">Analogy (词类比)</h4>
+
+<p><code>cos(w1-w2 +w3, wvec4)</code></p>
+
+<p>example:</p>
+
+<p><code>W('woman') - W('man') = W('aunt') - W('uncle')</code></p>
+
+<p><code>W('woman') - W('man') = W('queen') - W('king')</code></p>
+
+<h3 id="word-vectors">Word Vectors</h3>
+
+<p>Applications:</p>
+
+<ul>
+<li><p>useful for <strong>extrinsic word vectoe evaluation</strong>, such as text classification.</p></li>
+
+<li><p>When apply to other NLP tasks, it acts like <em>semi-supervised</em></p></li>
+
+<li><p>Translation</p></li>
+
+<li><p>Manifold</p></li>
+</ul>
+
+<h1 id="theories-of-word2vec">Theories of word2vec</h1>
+
+<h3 id="cbow-continuous-bag-of-words">CBOW (Continuous Bag of Words)</h3>
+
+<p>Use the context to predict <strong>the</strong> word.</p>
+
+<p>example: <u>I</u> <u>play</u> <u>basketball</u> <u>this</u> <u>afternoon</u>.</p>
+
+<p>If I take out the <code>basketball</code> from the sentence, and use the rest of the words to predict the probability the word <code>basketball</code>.</p>
+
+<p>Classifier: w(t) =&gt;<code>basketball</code></p>
+
+<p>Word Matrix =&gt;</p>
+
+<ul>
+<li><code>w(t-2)</code> : I</li>
+<li><code>w(t-1)</code>: play</li>
+<li><code>w(t+1)</code> : this</li>
+<li><code>w(t+2)</code>: afternoon</li>
+</ul>
+
+<p><code>p(Wt|Wt-2, Wt-1, Wt+1, Wt+2)</code>= ?</p>
+
+<h3 id="skip-gram">Skip-gram</h3>
+
+<p>Input =&gt; <code>basketball</code></p>
+
+<p>TODO: predict the words around the <code>basketball</code></p>
+
+<ul>
+<li><code>p(wt-1|wt)</code> = ?</li>
+<li><code>p(wt-2|wt)</code> = ?</li>
+<li><code>p(wt+1|wt)</code> = ?</li>
+<li><code>p(wt+1|wt)</code> = ?</li>
+</ul>
+
+<hr />
+
+<h1 id="highlights-of-the-paper">Highlights of the paper</h1>
+
+<h2 id="1-2-previous-works">1.2 Previous Works</h2>
+
+<h2 id="svd">SVD</h2>
+
+<p>Window based co-occurrence matrix</p>
+
+<p><img src="https://image.slidesharecdn.com/276ntstrb68zmgaigvia-signature-4919aae08f0ae9f3256efdc5cbdacac6c2a288ad9f47715bbefcb0ae9f95eb31-poli-170419184013/95/a-panorama-of-natural-language-processing-31-638.jpg?cb=1492627773" alt="Window based co-occurrence matrix " /></p>
+
+<p>dimension: <code>V*V</code> (<code>row*column</code>)</p>
+
+<p>need to do dimension reduction =&gt; <code>V*k, i.e., k = 300</code> (we can&rsquo;t do reduction on the rows of the matrix, since the rows represent the words in the sentence, and each word needs its own vector representation; but we can do the reduction on the columns, since not every word in the columns appear in the sentence.)</p>
+
+<h4 id="how-to-do-the-dimension-reduction">How to do the dimension reduction?</h4>
+
+<p><strong>UV decomposition.</strong> =&gt; SVD</p>
+
+<h2 id="model-architectures">Model Architectures</h2>
+
+<p>It focus on distributed representations of words learned by NN instead of LDA. LDA costs too much on large datasets.</p>
+
+<h3 id="2-1-feedforward-nn-language-model-nnlm">2.1 Feedforward NN Language Model (NNLM)</h3>
+
+<p>based on the (n-1) words upfront, to predict the probability of the nth word, and need to maximize the probability.</p>
+
+<p><code>p(xi|xi-1,xi-2,....xi-n)</code></p>
+
+<h2 id="why-does-word2vc-is-really-efficient">Why does word2vc is really efficient?</h2>
+
+<ul>
+<li>Optimized network structure:
+
+<ul>
+<li>remove hidden layer</li>
+<li>tree encoding classification</li>
+<li>negative sampling</li>
+<li>subsampling on high frequency words</li>
+</ul></li>
+<li>programming tricks:
+
+<ul>
+<li>parallel</li>
+<li>operations on low and high frequency words</li>
+<li>hash dict</li>
+<li>指数查表</li>
+</ul></li>
+</ul>
+
+      </div>
+
+      <footer>
+        
+
+
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "ffflora-github-io" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+      <p>Happy Analyzing!</p>
+    
+    
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-146589116-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+
+  </body>
+
+</html>

@@ -6,10 +6,37 @@
     <description>Recent content in Tags on Flora&#39;s</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 28 Jan 2020 00:50:02 -0800</lastBuildDate>
+    <lastBuildDate>Fri, 28 Feb 2020 10:25:43 -0800</lastBuildDate>
     
 	<atom:link href="https://ffflora.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>algorithm</title>
+      <link>https://ffflora.github.io/tags/algorithm/</link>
+      <pubDate>Fri, 28 Feb 2020 10:25:43 -0800</pubDate>
+      
+      <guid>https://ffflora.github.io/tags/algorithm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>NLP</title>
+      <link>https://ffflora.github.io/tags/nlp/</link>
+      <pubDate>Fri, 28 Feb 2020 10:25:43 -0800</pubDate>
+      
+      <guid>https://ffflora.github.io/tags/nlp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>paper</title>
+      <link>https://ffflora.github.io/tags/paper/</link>
+      <pubDate>Fri, 28 Feb 2020 10:25:43 -0800</pubDate>
+      
+      <guid>https://ffflora.github.io/tags/paper/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>React</title>
@@ -39,7 +66,7 @@
     </item>
     
     <item>
-      <title>notes</title>
+      <title>Notes</title>
       <link>https://ffflora.github.io/tags/notes/</link>
       <pubDate>Thu, 09 Jan 2020 21:52:20 -0800</pubDate>
       
@@ -71,33 +98,6 @@
       <pubDate>Sat, 16 Nov 2019 22:46:13 -0800</pubDate>
       
       <guid>https://ffflora.github.io/tags/%E4%B8%AD%E6%96%87/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>algorithm</title>
-      <link>https://ffflora.github.io/tags/algorithm/</link>
-      <pubDate>Tue, 05 Nov 2019 22:14:01 -0800</pubDate>
-      
-      <guid>https://ffflora.github.io/tags/algorithm/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>NLP</title>
-      <link>https://ffflora.github.io/tags/nlp/</link>
-      <pubDate>Tue, 05 Nov 2019 22:14:01 -0800</pubDate>
-      
-      <guid>https://ffflora.github.io/tags/nlp/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>paper</title>
-      <link>https://ffflora.github.io/tags/paper/</link>
-      <pubDate>Tue, 05 Nov 2019 22:14:01 -0800</pubDate>
-      
-      <guid>https://ffflora.github.io/tags/paper/</guid>
       <description></description>
     </item>
     
