@@ -6,10 +6,69 @@
     <description>Recent content in Cns on Flora&#39;s</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 29 Feb 2020 21:57:22 -0800</lastBuildDate>
+    <lastBuildDate>Wed, 18 Mar 2020 17:08:10 -0700</lastBuildDate>
     
 	<atom:link href="https://ffflora.github.io/cn/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>读书笔记：《改善 Python 程序的 91 个建议》(1)</title>
+      <link>https://ffflora.github.io/cn/solid-python/</link>
+      <pubDate>Wed, 18 Mar 2020 17:08:10 -0700</pubDate>
+      
+      <guid>https://ffflora.github.io/cn/solid-python/</guid>
+      <description>改善 Python 程序的 91 个建议(1) Content: Chapter 1 建议1：理解Pythonic概念
+建议2：编写Pythonic代码
+建议3：理解Python与C语言的不同之处
+建议4：在代码中适当添加注释
+建议5：通过适当添加空行使代码布局更为优雅、合理
+建议6：编写函数的4个原则
+建议7：将常量集中到一个文件
+Chapter 2 建议8：利用assert语句来发现问题
+建议9：数据交换值的时候不推荐使用中间变量
+建议10：充分利用Lazy evaluation的特性
+建议11：理解枚举替代实现的缺陷
+建议12：不推荐使用type来进行类型检查
+建议13：尽量转换为浮点类型后再做除法
+建议14：警惕eval()的安全漏洞
+建议15：使用enumerate()获取序列迭代的索引和值
+建议16：分清==与is的适用场景
+建议17：考虑兼容性，尽可能使用Unicode
+建议18：构建合理的包层次来管理module
+Chapter 3 建议19：有节制地使用from&amp;hellip;import语句
+建议20：优先使用absolute import来导入模块
+建议21：i+=1不等于++i
+建议22：使用with自动关闭资源
+建议23：使用else子句简化循环（异常处理）
+建议24：遵循异常处理的几点基本原则
+建议25：避免finally中可能发生的陷阱
+建议26：深入理解None，正确判断对象是否为空
+建议27：连接字符串应优先使用join而不是+
+建议28：格式化字符串时尽量使用.format方式而不是%
+建议29：区别对待可变对象和不可变对象
+建议30：[]、()和{}：一致的容器初始化形式
+建议31：记住函数传参既不是传值也不是传引用
+建议32：警惕默认参数潜在的问题
+建议33：慎用变长参数
+建议34：深入理解str()和repr()的区别
+建议35：分清staticmethod和classmethod的适用场景
+Chapter 4 建议36：掌握字符串的基本用法
+建议37：按需选择sort()或者sorted()
+建议38：使用copy模块深拷贝对象
+建议39：使用Counter进行计数统计
+建议40：深入掌握ConfigParser
+建议41：使用argparse处理命令行参数
+建议42：使用pandas处理大型CSV文件
+建议43：一般情况使用ElementTree解析XML
+建议44：理解模块pickle优劣
+建议45：序列化的另一个不错的选择——JSON
+建议46：使用traceback获取栈信息
+建议47：使用logging记录日志信息
+建议48：使用threading模块编写多线程程序
+建议49：使用Queue使多线程编程更安全
+Chapter 5 建议50：利用模块实现单例模式
+建议51：用mixin模式让程序更加灵活</description>
+    </item>
     
     <item>
       <title>读书笔记：《只有医生知道》</title>
